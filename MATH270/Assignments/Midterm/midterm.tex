@@ -1,0 +1,98 @@
+\documentclass[11pt, letterpaper, twoside]{article}
+\usepackage[letterpaper, portrait, left=1in, right=1in, top=1in, bottom=1in]{geometry}\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[explicit]{titlesec}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs, multirow} %for borders and merged ranges
+\usepackage{soul}% for underlines
+\usepackage[table]{xcolor} % for cell colors
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!} %Use \aug to make a equal column for an augmented matrix. Ie. 1 & 2 & 3 & 4 & \aug & x \\
+\begin{document}
+\begin{titlepage}
+	\centering
+	\vspace*{60px}
+	\hspace{0pt}
+	\includegraphics[width=0.2\textwidth]{logo}\par\vspace{1cm}
+	{\scshape\LARGE Athabasca University \par}
+	\vspace{1cm}
+	{\scshape\Large MATH 270\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Midterm\par}
+	\vspace{2cm}
+	{\Large\itshape Stanley Zheng\par}
+	\vfill
+	{\large August 16, 2020\par}
+	\vspace*{50px}
+	\hspace{0pt}
+\pagebreak
+\end{titlepage}
+\noindent Solve the following system of 3 linear equations using Gaussian and Gauss-Jordan elimination.
+\begin{align*}
+x+2y+3z&=9\\
+4x+5y+6z&=24\\
+3x+y-2z&=4
+\end{align*}
+
+\vspace{0.5cm}
+
+\noindent We can begin by manipulating this system into an augmented matrix.
+
+\[\begin{bmatrix}
+1 & 2 & 3 & \aug & 9\\
+4 & 5 & 6 & \aug & 24\\
+3 & 1 & -2 & \aug & 4
+\end{bmatrix}\]
+
+\noindent Next, we can begin manipulating this augmented matrix into row echelon form by adding \(-4R_1\) to \(R_2\) and adding \(-3R_1\) to \(R_3\). This creates a leading 1.
+
+\[\begin{bmatrix}
+1 & 2 & 3 & \aug & 9\\
+0 & -3 & -6 & \aug & -12\\
+0 & -5& -11 & \aug & -23
+\end{bmatrix}\]
+
+\noindent Finally, we let \(R_2=\frac{R_2}{-3}\) and \(R_3=5R_2+R_3\), and our matrix is in row echelon form.
+
+\[\begin{bmatrix}
+1 & 2 & 3 & \aug & 9\\
+0 & 1 & 2 & \aug & 4\\
+0 & 0& 1 & \aug & 3
+\end{bmatrix}\]
+
+\noindent From here, we can either solve for the leading variables (Gauss-Jordan elimination) or manipulate the matrix into reduced row echelon form (Gaussian elimination). We will begin with Gaussian elimination by adding \(-2R_2\) to \(R_1\)
+
+\[\begin{bmatrix}
+1 & 0 & -1 & \aug & 1\\
+0 & 1 & 2 & \aug & 4\\
+0 & 0 & 1 & \aug & 3
+\end{bmatrix}\]
+
+\noindent Finally, we let \(R_1=R_3+R_1\) and \(R_2=-2R_3+R_2\).
+
+\[\begin{bmatrix}
+1 & 0 & 0 & \aug & 4\\
+0 & 1 & 0 & \aug & -2\\
+0 & 0 & 1 & \aug & 3
+\end{bmatrix}\]
+
+\noindent Our solutions are \(\boxed{(x, y, z)=(4, -2, 3)}\). To solve using Gaussian-Jordan elimination, we can solve for the leading variables from our augmented matrix in row echelon form.
+
+\[\begin{bmatrix}
+1 & 2 & 3 & \aug & 9\\
+0 & 1 & 2 & \aug & 4\\
+0 & 0& 1 & \aug & 3
+\end{bmatrix}\]
+
+\begin{align*}
+x+2y+3z&=9\\
+y+2z&=4\\
+z&=3
+\end{align*}
+
+\noindent Substituting \(z=3\), we get \(y+2(3)=4\), so \(y=-2\). Then, substituting \(y=-2\) and \(z=3\) into the first equation, we have \(x+2(-2)+3(3)=9\). Therefore, we have \(\boxed{(x, y, z)=(4, -2, 3)}\)
+
+\end{document}

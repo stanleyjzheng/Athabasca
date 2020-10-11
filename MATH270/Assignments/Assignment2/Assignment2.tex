@@ -1,0 +1,524 @@
+\documentclass[11pt, letterpaper, twoside]{article}
+\usepackage[letterpaper, portrait, left=1in, right=1in, top=1in, bottom=1in]{geometry}\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[explicit]{titlesec}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs, multirow} %for borders and merged ranges
+\usepackage{soul}% for underlines
+\usepackage[table]{xcolor} % for cell colors
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!} %Use \aug to make a equal column for an augmented matrix. Ie. 1 & 2 & 3 & 4 & \aug & x \\
+\begin{document}
+\begin{titlepage}
+	\centering
+	\vspace*{60px}
+	\hspace{0pt}
+	\includegraphics[width=0.2\textwidth]{logo}\par\vspace{1cm}
+	{\scshape\LARGE Athabasca University \par}
+	\vspace{1cm}
+	{\scshape\Large MATH 270\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Assignment 2\par}
+	\vspace{2cm}
+	{\Large\itshape Stanley Zheng\par}
+	\vfill
+	{\large June 21, 2020\par}
+	\vspace*{50px}
+	\hspace{0pt}
+\pagebreak
+\end{titlepage}
+\begin{enumerate}
+\item \begin{enumerate}[label=(\alph*)] %Question 1
+\item\begin{enumerate}[label=\roman*.]\item We can start by multiplying $A^2$ then multiplying by $A$.\begin{align*} \begin{bmatrix}
+2 & 0\\
+4 & 1
+\end{bmatrix}^3&=\begin{bmatrix}
+4 & 0\\
+12 & 1
+\end{bmatrix}\cdot \begin{bmatrix}
+2 & 0\\
+4 & 1
+\end{bmatrix}\\
+&=	\begin{bmatrix}
+8 & 0\\
+28 & 1
+\end{bmatrix}
+\end{align*}
+\item We can invert the previous answer by using the following equation
+\begin{align*} \begin{bmatrix}
+a & b\\
+c & d
+\end{bmatrix}^{-1}&=\frac{1}{ad-bc}\begin{bmatrix}
+d & -b\\
+-c & a
+\end{bmatrix}\\
+\begin{bmatrix}
+8 & 0\\
+28 & 1
+\end{bmatrix}^{-1}&=\frac{1}{8-0}\begin{bmatrix}
+1 & 0\\
+-28 & 8
+\end{bmatrix}\\
+&=\begin{bmatrix}
+\frac{1}{8} & 0\\
+-\frac{7}{2} & 1
+\end{bmatrix}
+\end{align*}
+\item We can start by finding $A^2$.
+$$ \begin{bmatrix}
+2 & 0\\
+4 & 1
+\end{bmatrix}^2=\begin{bmatrix}
+4 & 0\\
+12 & 1
+\end{bmatrix}$$
+Next, we can subtract $2A$ and add $I$
+\begin{align*}
+A^2-2A+I&=\begin{bmatrix}
+4 & 0\\
+12 & 1
+\end{bmatrix}-2\cdot \begin{bmatrix}
+2 & 0\\
+4 & 1
+\end{bmatrix}-\begin{bmatrix}
+1 & 0\\
+0 & 1
+\end{bmatrix}\\
+&=\begin{bmatrix}
+-1 & 0\\
+4 & 0
+\end{bmatrix}
+\end{align*}
+\end{enumerate}
+\item We can start by defining an arbitrary square matrix $A$. Let $A=\big[\begin{smallmatrix}
+  a & b\\
+  c & d
+\end{smallmatrix}\big]$. We can then find $A^2-9$ as well as $A+3$ and $A-3$.%question 1b
+We know that in order to add or subtract a vector and a scalar, we need to multiply by the identity matrix. As such, we have
+\begin{align*}
+A^2-9&=\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}^2-9\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}\\
+&=\begin{bmatrix}
+a^2+bc-9&ab+bd\\
+ac+cd&bc+d^2-9
+\end{bmatrix}-\begin{bmatrix}
+9 & 0 \\
+0 & 9
+\end{bmatrix}\\
+\end{align*}
+Next, we can do the same to $A+3$ and $A-3$.
+\begin{align*}
+A+3&=\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}+3\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}\\
+&=\begin{bmatrix}
+a+3 & b\\
+c & d+3
+\end{bmatrix}\\
+A-3&=\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}-3\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}\\
+&=\begin{bmatrix}
+a-3 & b\\
+c & d-3
+\end{bmatrix}
+\end{align*}
+Then, we can multiply $(A+3)(A-3)$ to get $A^2-9$.
+\begin{align*}
+(A+3)(A-3)&=\begin{bmatrix}
+a+3 & b\\
+c & d+3
+\end{bmatrix}
+\cdot\begin{bmatrix}
+a-3 & b\\
+c & d-3
+\end{bmatrix}\\
+&=\begin{bmatrix}
+a^2+bc-9 & ab+bd\\
+ac+cd & bc+d^2-9
+\end{bmatrix}
+\end{align*}
+Recall that $A^2-9=\big[\begin{smallmatrix}
+	a^2+bc-9 & ab+bd\\
+	ac+cd & bc+d^2-9
+\end{smallmatrix}\big]$. Thus, we have proved that with an arbitrary matrix $A$, $A^2=(A+3)(A-3)$ and that $p(A)=p_1(A)p_2(A)$ for any real values.
+\end{enumerate}
+\item \begin{enumerate}[label=(\alph*)]%question 2
+\item In order to invert this augmented matrix, we can perform elementary row operations to manipulate it into an identity matrix, then perform those same elementary row operations on the identity matrix. We can start by subtracting $R_1$ from each other row. %Question 2a
+$$ \begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 3 & 0 & 0\\
+0 & 3 & 5 & 0\\
+0 & 3 & 5 & 7
+\end{bmatrix}$$
+Next, we can subtract $R_2$ from $R_3$ and $R_4$ and divide $R_2$ by 3.
+$$ \begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 5 & 0\\
+0 & 0 & 5 & 7
+\end{bmatrix}$$
+We can then subtract $R_3$ from $R_4$, divide $R_3$ by 5, and divide $R_4$ by 7. With these operations, we have an identity matrix.
+$$ \begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{bmatrix}$$
+We can now perform the elementary row operations above to the identity matrix to find the inverse of our initial matrix. Our first step was to subtract $R_1$ from all other rows and subtract $R_2$ from $R_3$ and $R_4$.
+$$ \begin{bmatrix}
+1 & 0 & 0 & 0\\
+-1 & 1 & 0 & 0\\
+0 & -1 & 1 & 0\\
+0 & -1 & 0 & 1
+\end{bmatrix}$$
+Next, we divided $R_2$ by 3 and subtracted subtracted $R_3$ from $R_4$.
+$$ \begin{bmatrix}
+1 & 0 & 0 & 0\\
+-\frac{1}{3} & \frac{1}{3} & 0 & 0\\
+0 & -1 & 1 & 0\\
+0 & 0 & -1 & 1
+\end{bmatrix}$$
+Finally, we divided $R_3$ by 5 and $R_4$ by 7. Therefore, the inverse of the matrix is
+$$\begin{bmatrix}
+1 & 0 & 0 & 0\\
+-\frac{1}{3} & \frac{1}{3} & 0 & 0\\
+0 & -\frac{1}{5} & \frac{1}{5} & 0\\
+0 & -\frac{1}{7} & -\frac{1}{7} & \frac{1}{7}
+\end{bmatrix}$$
+\item %Question 2b
+We can start by manipulating the augmented matrix into reduced row echlon form by elementary row operations. However, since we are working with a variable, $c$, we must look out for non-permissible values. We can start by dividing $R_1$ by $c$, then adding $-1\times R_1$ to $R_2$. However, since we divided by $c$, we need to add 0 to our list of non-permissible values.
+\begin{align*}
+\begin{bmatrix}
+c & 1 & 0\\
+1 & c & 1\\
+0 & 1 & c
+\end{bmatrix}&=\begin{bmatrix}
+1 & \frac{1}{c} & 0\\
+1 & c & 1\\
+0 & 1 & c
+\end{bmatrix}\\
+&=\begin{bmatrix}
+1 & \frac{1}{c} & 0\\
+0 & c-\frac{1}{c} & 1\\
+0 & 1 & c
+\end{bmatrix}
+\end{align*}
+Next, we can add $-\frac{1}{c} R_3$ to $R_1$ and $(\frac{1}{c}-c$ to $R_2$. In addition, we can swap $R_2$ and $R_3$.
+\begin{align*}
+\begin{bmatrix}
+1 & \frac{1}{c} & 0\\
+0 & c-\frac{1}{c} & 1\\
+0 & 1 & c
+\end{bmatrix}&=\begin{bmatrix}
+1 & \frac{1}{c}-\frac{1}{c} & -\frac{1}{c}\cdot c\\
+0 & 1 & c\\
+0 & 0 & 1-c^2+1\\
+\end{bmatrix}\\
+&=\begin{bmatrix}
+1 & 0 & -1\\
+0 & 1 & c\\
+0 & 0 & -c^2+2
+\end{bmatrix}
+\end{align*}
+Finally, we can add $ \frac{1}{-c^2+2}R_3$ to $R_1$ and add $\frac{c}{-c^2+2}R_3$ to $R_2$. Again, since we are dividing a variable, we need to account for non-permissible values. The solutions to $-c^2+2=0$ are $\pm \sqrt{2}$, so these are our non-permissible values along with $0$ from our previous operations.
+$$ \begin{bmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{bmatrix}$$
+
+Since we found non-permissible values of $0, \pm \sqrt{2}$ through division of varibles, these are the values of $c$ such that the matrix cannot be inverted. Therefore, the matrix is invertible for all real values $\boxed {c\neq 0, \pm \sqrt2}$
+\item We can find $C$ by finding the elementary row operations that manipulate $A$ into $B$ then performing identical operations to an identity matrix. Our first step to manipulate $A$ into $B$ is to add $-2\times R_1$ to $R_3$ and $R_2$%Question 2c
+$$ \begin{bmatrix}
+2 & 1 & 0\\
+-5 & -1 & 0\\
+-1 & -2 & -1
+\end{bmatrix}$$
+Finally, to manipulate $A$ into $B$, we can add $-4\times R_3$ to $R_1$
+$$ \begin{bmatrix}
+6 & 9 & 4\\
+-5 & -1 & 0\\
+-1 & -2 & -1
+\end{bmatrix}$$
+We can now perform these operations to the identity matrix. First, we add $-2\times R_1$ to $R_3$ and $R_2$.
+$$\begin{bmatrix}
+1 & 0 & 0\\
+-2 & 1 & 0\\
+-2 & 0 & 1
+\end{bmatrix}$$
+Next, we add $-4\times R_3$ to $R_1$. This is the value $C$ such that $CA=B$
+$$\begin{bmatrix}
+9 & 0 & -4\\
+-2 & 1 & 0\\
+-2 & 0 & 1
+\end{bmatrix}$$
+\end{enumerate}
+\item \begin{enumerate}[label=(\alph*)]%question 3
+\item We can begin by forming an augmented matrix with the provided system of equations.%question 3a
+$$\begin{bmatrix}
+0 & -1 & -2 & -3 & 0\\
+1 & 1 & 4 & 4 & 7\\
+1 & 3 & 7 & 9 & 4\\
+-1 & -2 & -4 & -6 & 6
+\end{bmatrix}$$
+
+While it is impossible to invert a nonsquare matrix, we know that for an invertible $m\times n$ matrix $A$, each $n\times1$ matrix $b$ has one solution in the system $Ax=b$, which is $x=A^{-1}b$. As a result, we can separate our $5\times4$ matrix into three matricies.
+$$ \begin{bmatrix}
+0 & -1 & -2 & -3\\
+1 & 1 & 4 & 4\\
+1 & 3 & 7 & 9\\
+-1 & -2 & -4 & -6
+\end{bmatrix}\cdot \begin{bmatrix}
+w \\
+x \\
+y \\
+z
+\end{bmatrix}=\begin{bmatrix}
+0 \\
+7 \\
+4 \\
+6
+\end{bmatrix}$$
+
+We can now invert the $4\times4$ matrix $A$ by using elementary row operations to reduce it into an identity matrix, then performing the same set of operations on a $4\times4$ identity matrix. We can start off by adding $-1\times R_2$ to $R_3$ and adding $R_2$ to $R_4$
+$$\begin{bmatrix}
+0 & -1 & -2&-3\\
+1 & 1 & 4 & 4\\
+0 & 2 & 3 & 5\\
+0 & -1 & 0 & -2
+\end{bmatrix}$$
+Next, we can swap $R_1$ and $R_2$ since $R_1$ has a leading 1. We can also add $-1\times R_1$ to $R_4$, $2\times R_1 $ to $R_3$, and $R_1$ to $R_2$. Finally, we can multiply $R_1$ by $-1$ to get a leading 1.
+$$\begin{bmatrix}
+1 & 0 & 2 & 1\\
+0 & 1 & 2&3\\
+0 & 0 & -1 & -1\\
+0 & 0 & 2 & 1
+\end{bmatrix}$$
+Then, we can add $2\times R_3$ to all other rows and divide $R_3$ by $-1$.
+$$\begin{bmatrix}
+1 & 0 & 0 & -1\\
+0 & 1 & 0 & 1\\
+0 & 0 & 1 & 1\\
+0 & 0 & 0 & -1
+\end{bmatrix}$$
+Finally, we can add $R_4$ to $R_2$ and $R_3$, and add $-1\times R_4$ to $R_1$. To complete our identity matrix, we multiply $R_4$ by -1.
+$$\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0&0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{bmatrix}$$
+We can now reverse all of these steps, but starting with an identity matrix instead of the matrix $A$. Our first step was to add $-1\times R_2$ to $R_3$ and add $R_2$ to $R_4$
+$$\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0&0\\
+0 & -1 & 1 & 0\\
+0 & 1 & 0 & 1
+\end{bmatrix}$$
+Our second step was to swap $R_1$ and $R_2$ and add $-1\times R_1$ to $R_4$, $2\times R_1 $ to $R_3$, and $R_1$ to $R_2$. Finally, we multiplied $R_1$ by $-1$.
+$$\begin{bmatrix}
+1 & 1 & 0&0\\
+-1 & 0 & 0 & 0\\
+2 & -1 & 1 & 0\\
+-1 & 1 & 0 & 1
+\end{bmatrix}$$
+Our third step was to add $2\times R_3$ to all other rows and divide $R_3$ by $-1$.
+$$\begin{bmatrix}
+5 & -1 & 2 &0\\
+3 & -2 & 2 & 0\\
+-2 & 1 & -1 & 0\\
+3 & -1 & 2 & 1
+\end{bmatrix}$$
+Our final step was to add $R_4$ to $R_2$ and $R_3$, add $-1\times R_4$ to $R_1$, and multiply $R_4$ by -1. Therefore, we have
+$$A^{-1}=\begin{bmatrix}
+2 & 0 & 0 &-1\\
+6 & -3 & 4 & 1\\
+1 & 0 & 1 & 1\\
+-3 & 1 & -2 & -1
+\end{bmatrix}$$%done
+Plugging back into the equation $x=A^{-1}b$, we have
+\begin{align*}
+\begin{bmatrix}
+w \\
+x \\
+y \\
+z
+\end{bmatrix}&=\begin{bmatrix}
+2 & 0 & 0 &-1\\
+6 & -3 & 4 & 1\\
+1 & 0 & 1 & 1\\
+-3 & 1 & -2 & -1
+\end{bmatrix}
+\begin{bmatrix}
+0 \\
+7 \\
+4 \\
+6
+\end{bmatrix}\\
+&=\begin{bmatrix}
+-6 \\
+-3\cdot 7 +4\cdot4+6\cdot1 \\
+4\cdot1+6\cdot1 \\
+7\cdot1-2\cdot4-6\cdot1
+\end{bmatrix}\\
+&=\begin{bmatrix}
+-6 \\
+1 \\
+10 \\
+-7
+\end{bmatrix}
+\end{align*}
+\item We can start by making an augmented matrix to represent the systems of equations.  %Question 3b
+$$\begin{bmatrix}
+1 & -2 & -1 & \aug & b_1\\
+-4 & 5 & 2 & \aug & b_2\\
+-4 & 7 & 4 & \aug & b_3
+\end{bmatrix}$$
+Next, we can manipulate this matrix into reduced row echlon and observe any restrictions. We can start by adding $4\times R_1$ to $R_2$ and $R_3$
+$$\begin{bmatrix}
+1 & -2 & -1 & \aug & b_1\\
+0 & -3 & -2 & \aug & 4b_1+b_2\\
+0 & -1 & 0 & \aug & 4b_1+b_3
+\end{bmatrix}$$
+We can then multiply $R_3$ by -1 and swap $R_2$ and $R_3$
+$$\begin{bmatrix}
+1 & -2 & -1 & \aug & b_1\\
+0 & 1 & 0 & \aug & -4b_1-b_3\\
+0 & -3 & -2 & \aug & 4b_1+b_2
+\end{bmatrix}$$
+Next, we add $2\times R_2$ to $R_1$ and $3\times R_2$ to $R_3$
+$$\begin{bmatrix}
+1 & 0 & -1& \aug & -7b_1-2b_3\\
+0 & 1 & 0 & \aug & -4b_1-b_3\\
+0 & 0 & -2 & \aug & -8b_1+b_2-3b_3
+\end{bmatrix}$$
+Finally, we divide $R_3$ by $-2$ and add to $R_1$.
+$$\begin{bmatrix}
+1 & 0 & 0& \aug & -3b_1-\frac{1}{2}b_2+\frac{1}{2}b_3\\
+0 & 1 & 0 & \aug & -4b_1-b_3\\
+0 & 0 & 1 & \aug & 4b_1-\frac{1}{2} b_2+\frac{1}{2}b_3
+\end{bmatrix}$$
+Therefore, the system is consistent for all real values $b_1, b_2,$ and $ b_3$.
+\end{enumerate}
+\item\begin{enumerate}[label=(\alph*)]
+\item We can simply multiply each of the diagonal entries together. We will replace unknown values with $-$. %Question 4a
+\begin{align*}
+ AB&=\begin{bmatrix}
+4\times 6 & 0 & 0\\
+- & 0 & 0\\
+- & - & 7\times 6
+\end{bmatrix}\\
+ &=\begin{bmatrix}
+24 & 0 & 0\\
+- & 0 & 0\\
+- & - & 42
+\end{bmatrix}
+\end{align*}
+\item Since the matrix is a diagonal matrix, in order to root and invert the matrix, we can simply give every diagonal entry a power of $-\frac{1}{2}$.%Question 4b
+\begin{align*}
+A&=\begin{bmatrix}
+9^{-\frac{1}{2}} & 0 & 0\\
+0 & 4^{-\frac{1}{2}} & 0\\
+0 & 0 & 1^{-\frac{1}{2}}
+\end{bmatrix}\\
+&=\begin{bmatrix}
+\frac{1}{3} & 0 & 0\\
+0 & \frac{1}{2} & 0\\
+0 & 0 & 1
+\end{bmatrix}
+\end{align*}
+\end{enumerate}
+\item The consumption matrix represents the number of inputs needed to create one unit of product. For example, sector 1 requires 0.5 units from sector 1, sector 2, and sector 3. Sector 2 requires 0.25, 0.125, and 0.25 units from sector 1, 2, and 3 respectively, and sector 3 requires 0.25, 0.25, and 0.125 units of input from the other sectors. The sector that requires the largest amount of inputs from the other sector will have the greatest dollar value. Sector 1 requires the maximum number of units of input from the other sectors, and therefore, Sector 1 has the greatest dollar value.
+
+We know that an economy is productive if $(I-C)$ is invertible and $(I-C)^{-1}\geq 0$. Therefore, we can subtract $C$ from the identity matrix and then invert.
+\begin{align*}
+(I-C)^{-1} &=\left(\begin{bmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{bmatrix} - \begin{bmatrix}
+\frac{1}{2} & \frac{1}{4} & \frac{1}{4}\\
+\frac{1}{2} & \frac{1}{8} & \frac{1}{4}\\
+\frac{1}{2} & \frac{1}{4} & \frac{1}{8}
+\end{bmatrix}\right)^{-1}\\
+&=\begin{bmatrix}
+\frac{1}{2} & -\frac{1}{4} & -\frac{1}{4}\\
+-\frac{1}{2} & \frac{7}{8} & -\frac{1}{4}\\
+-\frac{1}{2} & -\frac{1}{4} & \frac{7}{8}
+\end{bmatrix}^{-1}\\
+\end{align*}
+To invert $(I-C)$, we can manipulate it into an identiy matrix and perform the same operations on an identity matrix. We can start by adding $R_1$ to $R_2$ and $R_3$ then multiplying $R_1$ by 2
+\begin{align*}
+\begin{bmatrix}
+\frac{1}{2} & -\frac{1}{4} & -\frac{1}{4}\\
+-\frac{1}{2} & \frac{7}{8} & -\frac{1}{4}\\
+-\frac{1}{2} & -\frac{1}{4} & \frac{7}{8}
+\end{bmatrix}^{-1}&=
+\begin{bmatrix}
+1 & -\frac{1}{2} & -\frac{1}{2}\\
+0 & \frac{5}{8} & -\frac{1}{2}\\
+0 & -\frac{1}{2} & \frac{5}{8}
+\end{bmatrix}\\
+&= \begin{bmatrix}
+1 & -\frac{1}{2} & -\frac{1}{2}\\
+0 & 1 & -\frac{4}{5}\\
+0 & -\frac{1}{2} & \frac{5}{8}
+\end{bmatrix}\\
+&= \begin{bmatrix}
+1 & 0 & \frac{9}{10}\\
+0 & 1 & -\frac{4}{5}\\
+0 & 0 & \frac{9}{40}
+\end{bmatrix}\\
+&=\begin{bmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{bmatrix}
+\end{align*}
+Finally, reversing these operations on an identity matrix,
+\begin{align*}
+\begin{bmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{bmatrix} &= \begin{bmatrix}
+2 & 0 & 0\\
+1 & 1 & 0\\
+1 & 0 & 1
+\end{bmatrix}\\
+&=\begin{bmatrix}
+\frac{14}{5} & \frac{4}{5} & 0\\
+\frac{8}{5} & \frac{8}{5} & 0\\
+\frac{9}{5} & \frac{4}{5} & 1
+\end{bmatrix}\\
+&=\begin{bmatrix}
+\frac{14}{5} & \frac{4}{5} & 0\\
+\frac{8}{5} & \frac{8}{5} & 0\\
+\frac{72}{9} & \frac{32}{9} & \frac{40}{9}
+\end{bmatrix}\\
+&=\begin{bmatrix}
+10 & 4 & 4\\
+8 & \frac{40}{9} & \frac{32}{9}\\
+8 & \frac{32}{9} & \frac{40}{9}
+\end{bmatrix}
+\end{align*}
+Since $(I-C)^{-1}>0$, our open economy is productive.
+\end{enumerate}
+\end{document}

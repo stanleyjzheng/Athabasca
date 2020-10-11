@@ -1,0 +1,136 @@
+\documentclass[11pt, letterpaper, twoside]{article}
+\usepackage[letterpaper, portrait, left=1in, right=1in, top=1in, bottom=1in]{geometry}\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[explicit]{titlesec}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs, multirow} %for borders and merged ranges
+\usepackage{soul}% for underlines
+\usepackage[table]{xcolor} % for cell colors
+\usepackage{multicol} % For multiple columns
+\setlength{\parindent}{0pt}
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!} %Use \aug to make a equal column for an augmented matrix. Ie. 1 & 2 & 3 & 4 & \aug & x \\
+\begin{document}
+Linear Algebra MATH270 Midterm Cheat Sheet
+\vspace{0.2cm}
+
+One parameter linear equation means that there is one variable in the solution. Eg. $\big[\begin{smallmatrix}
+	1 & 0 & \frac{2}{a} & \frac{2}{a}\\
+	0 & 1 & \frac{2}{a} & \frac{2}{a}
+\end{smallmatrix}\big]$
+
+\textbf{Leontief} consumption matrices are productive when \((I-C)^{-1}\). The greatest dollar value is the sector that requires the largest amount of inputs from the other sectors.
+
+\textbf{Symmetrical} matrices are their own transposes.
+
+\textbf{Diagonal} matrices consist of only the main diagonal. It is invertible iff all diagonal entries are nonzero.
+
+\textbf{Triangular} matrices consist of 0's below or above the main diagonal. They can be used to solve systems through back or forwards substitution.
+
+\begin{multicols}{2}
+\vspace{2mm}
+Properties of matrix arithmetic %Pg 39 in textbook
+\begin{enumerate}[label=\alph*)]
+\item \(A+B=B+A\)
+\item \(A+(B+C)=(A+B)+C\)
+\item \(A(BC)=(AB)C\)
+\item \(A(B+C)=AB+AC\)
+\item \((B+C)A=BA+CA\)
+\item \(a(B+C)=aB+aC\)
+\item \((a+b)C=aC+bC\)
+\item \(a(bC)=(ab)C\)
+\item \(a(BC)=(aB)C=B(aC)\)
+\item \((A+B)^2=A^2+AB+BA+B^2\)
+\end{enumerate}
+\columnbreak
+Properties of inverse matrices % Pg 46 in textbook
+\begin{enumerate}[label=\alph*)]
+    \item \((AB)^{-1}=B^{-1}A^{-1}\)
+    \item \((A^T)^{-1}=(A^{-1})^T\)
+\end{enumerate}
+
+Equivalent statements theorem (all true or all false)
+\begin{enumerate}[label=-]
+\item \(A\) is invertible.
+\item \(A\mathbf{x}=0\) has only the trivial solution
+\item The reduced row echelon form of \(A\) is \(I_n\)
+\item \(A\) can be expressed as a product of elementary matrices. 
+\item \(A\mathbf{x}=\mathbf{b}\) is consistent for every \(n\times1\) matrix \(\mathbf{b}\) and has exactly one solution
+\end{enumerate}
+\end{multicols}
+
+\vspace{2mm}
+If A is an \textbf{invertible} \(m\times n\) matrix, then for each \(n\times1\) matrix \textbf{b}, the systems of equations \(A\textbf{x}=\textbf{b}\) has exactly one solution, namely, \(\textbf{x}=A^{-1}\textbf{b}\)
+
+\vspace{2mm}
+A matrix is called \textbf{linearly independent} if the vector equation \(x_1\mathbf{v}_1+\cdots+x_n\mathbf{v_n}=\mathbf{0}\) has \textbf{only} the trivial solution. If it has more solutions, it is not linearly independent.
+
+\vspace{2mm}
+For a \textbf{homogenous} system, the system either has only the trivial solution, or more than one solution.
+
+For a non-homogenous system, either the system has a single unique solution, more than one solution, or no solution at all.
+
+A homogenous system of \(m\) linear equations in \(n\) unknowns always has a non-trivial solution if \(m<n\).
+
+A system is \textbf{consistent} when it has at least one solution. If the system \(x_1v_1+\dots + x_nv_n=\mathbf{b}\), we say that \textbf{b} is a linear combination of the vectors. No solutions means the system is inconsistent.
+
+A \textbf{consistent} system will have a \textbf{unique} solution if and only if the columns of the coefficient matrix are linearly independent vectors (if the homogenous linear equation has non-trivial solutions)
+
+\pagebreak
+
+Extras:
+
+\vspace{2mm}
+A system of linear equations with coefficient matrix \(A\) will be inconsistent for certain values on the right hand side if the row echelon form of \(A\) contains a row of zeros. If the row echelon form of the coefficient matrix \(A\) does not contain a row of zeros, then the system is always consistent, regardless of what the right hand side is.
+
+\vspace{2mm}
+A system has infinite solutions if it has arbitrary variables
+
+\vspace{2mm}
+Diagonal matrices can be raised to the power like an integer.
+
+\vspace{2mm}
+Assignment 1 Q1 (Parametric equations?), Q3 (Try this, no fractions), Q4 (Try this, see if it is defined and find rules), Q5 (Try this)
+
+Assignment 2 Q2b \& Q2c (Try this), Q3 (Theorem 1.6.2)
+
+\pagebreak
+
+Stanley Zheng - MATH270 Reflection
+
+\vspace{2mm}
+First of all, my sincere apologies for the delay. I should have read the expectations prior to handing in my solution, and I hope you will accept this reflection.
+
+\vspace{2mm}
+Throughout MATH270, I've learned not only about linear algebra, but the ins-and-outs of remote learning and post-secondary education. 
+I am a high school student interested in computer science (data science and AI in particular), and linear algebra has been very eye-opening to me. First of all, the way the proofs differ from other math I have done in class; instead of being taught rules to memorize, we are taught proofs for rules that are intuitive. 
+I am still very new to proofs and unsure how to eloquently write my own proofs, but I prefer this hands-on style of learning. 
+The proofs that are taught are elegant, though some of the notation is still a bit alien to me.
+
+\vspace{2mm}
+I most enjoyed learning about properties of operations and inverse matrices in linear algebra. 
+In the field of artificial intelligence, matrix operations are performed rapidly and a crucial part of building intuition. 
+Recommender neural networks use matrix factorization, and linear algebra is crucial for linear regression. 
+I have had to use the transposes of matrices and matrix multiplication to find optimal image resolutions, among others. 
+The future units, especially eigenvectors and eigenvalues, also have an application in every AI, which I am excited to learn about.
+Linear algebra has helped me build an intuition for how the code I write works, and how I can improve it. 
+I also enjoyed learning about Leontief consumption matrices, as they are another real-world application of linear algebra. 
+It is inspiring to me to think that the mathematics I am doing has a real-world impact and was used by many great minds before. 
+
+\vspace{2mm}
+Among the topics I have explored while studying for the midterm are many definitions. 
+When I started this course, my friend told me that formulas are to calculus what definitions are to linear algebra. 
+They're both absolutely crucial. 
+
+\vspace{2mm}
+I had some troubles working through the definitions, as many sounded similar, but had vastly different definitions, for example, consistent and dependent systems.
+I therefore spent a lot of time learning definitions, about what a trivial solution is (a 0 vector), the definition of a linearly dependent and independent matrix, properties of homogenous systems, one or two parameter solutions, and when matrices are consistent and have unique solutions. 
+
+\vspace{2mm}
+There were also many cases where I thought back on my previous mathematic experiences including tests or math contests, where I could have applied linear algebra, particularly Gaussian elimination, where I could have solved a problem much quicker and more efficiently with techniques I now know.
+Thus far, this course, though vastly different from any math courses I have taken to date, has helped me build my mathematical intuition and logic. I look forwards to completing the second half of the class in a timely manner. 
+
+\end{document}
