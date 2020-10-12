@@ -1,9 +1,0 @@
-{
-    "cSpell.enableFiletypes": [
-        "!python",
-        "latex"
-    ],
-    "cSpell.enabled": true,
-    "python.pythonPath": "/home/stanleyzheng/anaconda3/bin/python",
-    "compile-hero.disable-compile-files-on-did-save-code": true
-}
