@@ -25,11 +25,15 @@
 \vspace{2cm}
 {\Large\itshape Stanley Zheng\par}
 \vfill
-{\large September 3, 2020\par}
+{\large October 17, 2020\par}
 \vspace*{50px}
 \hspace{0pt}
 \pagebreak
 \end{titlepage}
+
+\noindent My sincere apologies if there are any typos or work is not shown fully. 
+I wrote this assignment hastily, and the length made it difficult to check for typos. 
+I hope you can understand. Thanks.
 \begin{enumerate}
 \item 
 \begin{enumerate}[label=\alph*)]
@@ -164,6 +168,54 @@ We have \(t\approx0.266\) for our second function.
 Adding 1 second from our first function, the ant travelled for \(\boxed{1.266s}\).
 
 \item %q7
+\begin{enumerate}[label=\alph*)]
+\item We can use \(u\) substitution. 
+First, we substitute \(u=x^2-6x+1\), the polynomial under the square root.
+
+\[u^\prime=2x-6 dx\]
+\[\frac{u^\prime}{2}=x-3dx\]
+
+Conveniently, we see that the numerator has a factor of this.
+
+\begin{align*}
+&3\int \frac{\frac{u^\prime}{2}}{\sqrt{u}}\\
+&= 3u^{0.5}+c\\
+&= \boxed{3\sqrt(x^2-6x+1)+C}
+\end{align*}
+\item Again, we can use \(u\) substitution, this time, 
+we can substitute \(u=3-\tan\theta\), the numerator of the integral.
+
+The derivative is 
+\[u^\prime=-\sec^2\theta d\theta\]
+
+Simplifying to find \(\cos^2\theta\), we have \(-u^\prime=\frac{d\theta}{cos^2\theta}\)
+
+Our integral becomes \(\int u (-du)\). 
+
+Again, we can simplify, and our final answer is \(\boxed{\frac{-(3-\tan\theta)^2}{2}+C}\)
+
+\item We can begin by expanding the numerator.
+\begin{align*}
+&\int\frac{(2-x+x^2)^2}{\sqrt x}\\
+&=\int\frac{x^4-2x^3+5x^2-4x+4}{\sqrt x}\\
+&=\int x^{\frac{7}{2}}-2x^{\frac{5}{2}}+5x^{\frac{3}{2}}-4x^{\frac{1}{2}}+4x^{-\frac{1}{2}}
+\end{align*}
+From here, we can simply find the anti-derivative with the equation \(\int x^ndx=\frac{x^{n+1}}{n+1}+C\).
+
+\[\boxed{\frac{2x^{\frac{9}{2}}}{9}-\frac{4x^{\frac{7}{2}}}{7}+2x^{\frac{5}{2}}-\frac{8x^{\frac{3}{2}}}{3}+8\sqrt x+c}\]
+
+\item We can begin by using trigonometric identities to simplify the integral.
+
+\[\int\frac{1+\cos(6x)}{2}dx\]
+
+Then, we can remove the constant and apply the sum rule
+
+\[\frac{1}{2}\int 1dx + \int \cos(6x)dx\]
+
+Finally, evaluating the integrals, we have 
+
+\[\boxed{\frac{x}{2}+\frac{\sin(6x)}{12}+C}\]
+\end{enumerate}
 \item %q8
 %def taken from http://www.sosmath.com/calculus/diff/der11/der11.html
 Mean value theorem states that \(f(x)\) is defined and continuous on the interval \([a, b]\) and is differentiable on interval \((a,b)\),
@@ -184,7 +236,7 @@ Therefore, we have
 This is since the largest possible value of of \(\cos^\prime(c)\) and \(|a-b|\) is 1.
 
 \item %q9 
-\begin{enumerate}[label=\alph*]
+\begin{enumerate}[label=\alph*)]
 \item
 We can use the intermediate value theorem to find possible intervals of a root. 
 To this, we can evaluate the function at a few points. 
@@ -212,6 +264,52 @@ Given our bound \((0.25, 1)\), this is impossible since \(9x^2\geq0\) and \(x>0.
 Thus, we have a contradiction and our function \(f\) has exactly one root.
 
 \end{enumerate}
+\item %q10
+We can first split the integral into parts to use the trigonometric identity.
+
+\[\int \cos^2(x)\cos(x)\sin^2(x)dx\]
+
+Next, we will substitute \(\cos^2(x)=1-\sin^2(x)\)
+
+\[\int(1-\sin^2(x))\cos(x)\sin^2(x)dx\]
+
+We can then use \(u\) substitution, with \(u=\sin(x)\). 
+
+\[\int u^2(1-u^2)du\]
+\[\int u^2du = \frac{u^3}{3}\]
+\[\frac{u^3}{3}-\frac{u^5}{5}\]
+
+Therefore, after substituting \(u=\sin(x)\) back in, our solution is 
+
+\[\frac{sin^3(x)}{3}-\frac{sin^5(x)}{x}+C\]
+
+\item %Q11
+
+
+\item %Q12
+Let \(a\) be a constant in the interval \((-x, x^2)\).
+
+From the fundamental theorem of calculus, we can split the integral into two parts. 
+First, we have 
+
+\[\frac{d}{dx}\int_x^a f(t)dt+\int_a^{x^2}f(t)dt\]
+
+\[=\frac{d}{dx}-\int_{-a}^{-x}f(t)dt\int_a^{x^2}f(t)dt\]
+
+Let \(g(x)\) be the anti-derivative of \(\tan(3x)\). Then, \(g^\prime(x)=\tan(3x)\).
+
+Then, we can rewrite the integral above as the following.
+
+\[\frac{d}{dx}g(x^2)-g(-x)\]
+
+We can then differentiate this using the chain rule
+
+\[2x\cdot g^\prime(x^2)+g^\prime (-x)\]
+
+Recalling \(g^\prime=\tan (x) = f(x)\)
+
+We have \(2x\cdot f(x^2)+f(-x)\). 
+Substituting \(f(x)=\tan(3x)\), we have \(\boxed{2x\cdot\tan(3x^2)+\tan(-3x)}\)
 
 \end{enumerate}
 \end{document}
