@@ -46,10 +46,46 @@ The domain of the function \(g\) is \((-\infty, w)\cup(w, x)\cup(x, y]\)
 \item The absolute minimum is at \(v\). It appears as though the graph has negative slope as \(x\) decreases beyond \(v\) to infinity.
 \end{enumerate}
 \item %q2
+The first condition specifies that this is an odd function, so we must verify this by reflecting over the origin.
 
 \item %q3
+Our first step is to find the domain of the function.
+Setting the denominator to zero, we have \(x^2+6=0\), so our domain is \(x\neq\pm\sqrt6\)
 
-\item %q4
+Next, we can find the intercepts. We can find the \(x\) intercept by letting \(y=0\).
+We have \(x^2=4\), so our \(x\)-intercepts are \(x=\pm2\).
+Likewise, our \(y\)-intercepts are \(-\frac{4}{6}\).
+
+We can then test if the function is even or odd. 
+We can test whether it is even or not by simplifying \(f(-x)\). 
+If \(f(-x)=f(x)\), then our function is even.
+\[f(-x)=\frac{(-x)^2-4}{(-x)^2+6}\]
+Since \(-x\) is squared, we know that \(f(-x)=f(x)\), and therefore, the function is even.
+
+Our function is not periodic, but it does have a horizontal asymptote. 
+At extremely large values of \(x\), our function will be approximately equal to \(\frac{x^2}{x^2}\), so we have a horizontal asymptote at \(x=1\).
+
+Next, we find the derivative of \(f(x)\).
+
+\[f^\prime(x)=\frac{2x(x^2+6)-2x(x^2-4)}{(x^2+6)^2}\]
+\[f^\prime(x)=\frac{20x}{(x^2+6)^2}\]
+
+Since \(f^\prime(x)<0\) when \(x<0\) and \(f^\prime(x)>0\) when \(x>0\), we know that the function is decreasing on \((-\infty, 0)\) and increasing on \(0, \infty\).
+
+Our only critical number is \(x=0\), where \(f^\prime\) changes from positive to negative.
+We know it is a local minimum since the derivative to the right is positive, but negative to the left.
+
+We can find concavity with the second derivative of the function. 
+
+\[f^{\prime\prime}(x)=-\frac{60x^2-120}{(x^2+6)^3}\]
+
+From this, the curve is concave upward at \((-\sqrt2, \sqrt2)\) and points of concavity are \(\pm\sqrt2\).
+
+Finally, we can draw the graph of the function.
+
+%GRAPH
+
+\item %q4 (no check)
 First, we need to find relative distances for swimming and jogging.
 Let's let \(\angle PWE\) be \(\theta\).
 We can create a triangle by connecting points \(PWE\) with straight lines.
@@ -60,10 +96,8 @@ We must multiply by 2 since the angle is not measured at the center of the circl
 
 We know that critical points are found where the derivative of a function is 0 or undefined.
 To find the derivative, we can find an equation for the time of the journey, then differentiate.
-
 \[\frac{1}{24}\cdot3\theta+\frac{1}{3}\cdot3\cos\theta\]
 \[\frac{\theta}{8}+\cos\theta\]
-
 We can then differentiate and find zeros.
 \[0=\frac{1}{8}-\sin\theta\]
 \[\sin\theta=\frac{1}{8}\]
@@ -73,10 +107,111 @@ To find the distance to jog, we multiply by 3.
 The final distance Peter should jog to arrive at point W in the least amount of time is \(\boxed{0.376\text{km}}\)
 
 \item %q5
+\begin{enumerate}[label=\alph*)]
+\item Graph is as follows:
+
+\includegraphics[width=0.6\textwidth]{q5}\par\vspace{1cm}
+\item We can evaluate the function at various reference angles, since we know that \(x^2\) will always be positive and \(\sin x\) has a maximum value of 1.
+
+When \(x=0\), we have \(\sin0-(0^2)=0\).
+
+When \(x=\frac{\pi}{2}\), we have \(\sin\frac{\pi}{2}-(\frac{\pi}{2})^2\), which is positive.
+
+When \(x=\frac{\pi}{3}\), we have \(\sin\frac{\pi}{3}-(\frac{\pi}{3})^2\), which is negative.
+
+When \(x=\frac{\pi}{4}\), we have \(\sin\frac{\pi}{4}-(\frac{\pi}{4})^2\), which is positive.
+
+Then, we know that the interval in which \(x\) is nonzero is \([\frac{\pi}{4}, \frac{\pi}{3}]\)
+
+\item 
+In order to use Newton's method, we must have the function in the form \(f(x)=0\), so our function is \(\sin x - x^2=0\).
+
+We can now write down the general formula for Newton's method.
+
+\[x_{n+1}=x_n-\frac{\sin x_n-x_n^2}{\cos x_n -2x_n}\]
+
+Next, we can get our first approximation by substituting our lower bound, \(\frac{\pi}{3}\).
+
+\[x_1=\frac{\pi}{3}-\frac{\sin(\frac{\pi}{3})-\left(\frac{\pi}{3}\right)^2}{\cos(\frac{\pi}{3})-2\left(\frac{\pi}{3}\right)}\approx0.902567586\]
+
+We must do this again, but substituting \(x_n\) with 0.902567586.
+
+\[x_2=0.902567586-\frac{\sin0.902567586-\left(0.902567586\right)^2}{\cos0.902567586-2\left(0.902567586\right)}\approx0.8775090289\]
+
+Again, we can substitute \(x_n\) with 0.8775090289.
+
+\[x_3=0.8775090289-\frac{\sin0.8775090289-\left(0.8775090289\right)^2}{\cos0.8775090289-2\left(0.8775090289\right)}\approx0.8767269756\]
+
+After one more repetition, we get \(x_4=0.876726215396\), which has 6 digits consistent with \(x_3\).
+Therefore, \(x\) has a nonzero solution of \(\boxed{x=0.876726}\)
+
+\end{enumerate}
 
 \item %q6
+We can begin by finding the integral of the first function to see if the ant walks 4cm in the first second.
 
+\[\int_0^1(5t)dt=\frac{5t^2}{2}=\frac{5}{2}\]
 
+The ant can only walk 2.5cm in the first second, therefore, we need to find the integral of the second function.
+
+\[\int_1^t(6\sqrt t-\frac{1}{t})dt=4t^{\frac{3}{2}}-\ln t\]
+
+We can then add our first integral to the second integral and equate it to 4cm.
+
+\[4=\frac{5}{2}+4t^{\frac{3}{2}}-\ln t \]
+
+We have \(t\approx0.266\) for our second function. 
+Adding 1 second from our first function, the ant travelled for \(\boxed{1.266s}\).
+
+\item %q7
+\item %q8
+%def taken from http://www.sosmath.com/calculus/diff/der11/der11.html
+Mean value theorem states that \(f(x)\) is defined and continuous on the interval \([a, b]\) and is differentiable on interval \((a,b)\),
+then there is at least one number \(c\) such that \(f^\prime(c)=\frac{f(b)-f(a)}{b-a}\).
+
+For this question, we can let \(f(x)=\cos(x)\). 
+Plugging into our equation, we have 
+\[f^\prime(c)=\frac{\cos(a)-\cos(b)}{b-a}\]
+
+We can put absolute value to the left-hand side as well as the denominator and numerator.
+\[|f^\prime(c)|-\frac{|\cos(a)-\cos(b)|}{|b-a|}\]
+
+We know that \(f(c)=\cos(c)\), so \(f^\prime(c)=-\sin(c)\), and the domain is \([-1, 1]\).
+Therefore, we have 
+
+\[|a-b|\geq |cos\prime(c)||a-b|\]
+
+This is since the largest possible value of of \(\cos^\prime(c)\) and \(|a-b|\) is 1.
+
+\item %q9 
+\begin{enumerate}[label=\alph*]
+\item
+We can use the intermediate value theorem to find possible intervals of a root. 
+To this, we can evaluate the function at a few points. 
+Looking at the equation, it is not defined when \(x<0\). 
+We can start with points \(x=0, 1, 2\).
+
+When \(x=0\): \(f(0)=3\cdot0^3+\sqrt{0}-2=-2\)
+
+When \(x=0.25\): \(f(0.25)=3\cdot0^3+\sqrt{0.25}-2=-1.3125\)
+
+When \(x=1\): \(f(1)=3\cdot1^3+\sqrt(1)-2=2\)
+
+\item
+We can use Rolle's theorem and argue by contradiction.
+It states that for a function with two real roots, \(a\) and \(b\), we would have \(f(a)=f(b)=0\).
+
+Since \(f\) is a polynomial, it must be differentiable on \((a, b)\) and continuous on \([a,b]\).
+
+Then, we need to find a number \(c\) between \(a\) and \(b\) such that \(f^\prime(c)=0\).
+
+The derivative of our equation is \(9x^2+\frac{1}{2\sqrt x}\)
+
+Given our bound \((0.25, 1)\), this is impossible since \(9x^2\geq0\) and \(x>0.25\) so also \(\frac{1}{2\sqrt x}>0\).
+
+Thus, we have a contradiction and our function \(f\) has exactly one root.
+
+\end{enumerate}
 
 \end{enumerate}
 \end{document}
