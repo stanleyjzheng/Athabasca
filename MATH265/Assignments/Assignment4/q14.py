@@ -20,8 +20,8 @@ y3 = sympy.lambdify(x, y3, 'numpy')
 plt.grid(True)
 plt.axhline(y=0, lw=1, color='black')
 plt.axvline(x=0, lw=1, color='black')
-plt.xticks(np.arange(-10, 10, 1.0))
-plt.yticks(np.arange(-10, 10, 1.0))
+plt.xticks(np.arange(-100, 100, 0.1))
+plt.yticks(np.arange(-100, 100, 1))
 
 plot_x1 = x1
 plot_y1 = y1(x1)
@@ -34,13 +34,18 @@ plt.plot(plot_x1,plot_y3, color='black', linewidth=1)
 
 # plt.plot(3, 9, marker='.', color='black')
 
-section = np.arange(0, 10, 0.01)
-#y_area = np.minimum(y1(section), y2(section))
-y_area = np.minimum(np.minimum(y1(section), y2(section)), y3(section))
+# from stackoverflow question https://stackoverflow.com/questions/16417496/matplotlib-fill-between-multiple-lines
 
+section = np.arange(0, 0.52, 0.01)
+y_area = np.minimum(y1(section), y3(section)) # top two line bounds
 
-plt.ylim(0, 5)
+plt.ylim(0, 20)
+plt.xlim(-1, 1)
 
-plt.fill_between(section, y1(section), y_area)
+plt.fill_between(section, y2(section), y_area) # y2 is the bottom line bound
+
+plt.text(0.5, 4.2, "a (0.5, 4)")
+plt.text(0.05, 0, "b (0, 0)")
+plt.text(0.25, 16, "c (0.25, 16)")
 
 plt.show()
