@@ -52,6 +52,7 @@ The domain of the function \(g\) is \((-\infty, w)\cup(w, x)\cup(x, y]\)
 \item %q2
 The first condition specifies that this is an odd function, so we must verify this by reflecting over the origin.
 
+\includegraphics[width=0.6\textwidth]{q2}\par\vspace{1cm}
 \item %q3
 Our first step is to find the domain of the function.
 Setting the denominator to zero, we have \(x^2+6=0\), so our domain is \(x\neq\pm\sqrt6\)
@@ -249,6 +250,39 @@ Therefore, after substituting \(u=\sin(x)\) back in, our solution is
 \item %Q11
 \begin{enumerate}[label=\alph*)]
 \item  %q11a
+We can use the indefinite integral we found in Question 7 part D.
+
+\[\frac{x}{2}+\frac{\sin(6x)}{12}\]
+
+Substituting \(x=\frac{\pi}{6}\), we have 
+
+\[\frac{\frac{\pi}{6}}{2}+\frac{\sin(6\frac{\pi}{6})}{12}=\boxed{\frac{\pi}{12}}\]
+
+\item We can solve the indefinite integral and substitute in.
+
+\begin{align*}
+&\int -\frac{\cos(3x)-\cos(x)}{2}dx\\
+&=\frac{1}{2}\int \cos dx-\frac{1}{2}\int\cos(3x)dx\\
+&=\frac{\sin(x)}{2}-\frac{\sin(3x)}{6}\\
+&=\frac{2\sin^3(x)}{3}+C
+\end{align*}
+
+Substituting in \(x=\pi\), we have \(\frac{2\sin^3(\pi)}{3}=\boxed{0}\)
+
+\item Again, we can begin by solving the indefinite integral.
+\begin{align*}
+&\int\cos(2x)dx+\int x^2dx\\
+\end{align*}
+We let \(u=2x\) and substitute in.
+\begin{align*}
+&\frac{1}{2}\int\cos(u)du+\int x^2dx\\
+&=\frac{1}{2}\int\cos(u)du+\int x^2 dx\\
+&=\frac{\sin(2x)}{2}+\frac{x^3}{3}+C
+\end{align*}
+Finally, we substitute in \(x=2\) and subtract from \(f(-2)\).
+
+%\[\left(\frac{\sin(2\cdot2)}{}\right)\]
+\[\left(\frac{\sin(4)}{2}+\frac{(2)^3}{3}\right)-\left(\frac{\sin(-4)}{2}+\frac{(-2)^3}{3}\right)\approx4.5765\]
 \end{enumerate}
 
 \item %Q12
@@ -270,8 +304,18 @@ We have \(2x\cdot f(x^2)+f(-x)\).
 Substituting \(f(x)=\tan(3x)\), we have \(\boxed{2x\cdot\tan(3x^2)+\tan(-3x)}\)
 
 \item %Q13
+Work is equal to force times distance, so we need to define these.
 
+Force is equal to weight multiplied by volume.
+Since we are working with a cylinder, the equation for volume is \(\pi r^2h\).
+Our radius is \(12ft\), and our height is constantly changing, so our equation is \(pi 12^2h=\pi 144h\).
+Multiplying by 62.5\(ft/s\), force is \(9000\pi h\)lb.
 
+We can now integrate from 1 to 5, the distances the water must travel to exit the swimming pool.
+\[\int_1^5(9000\pi x)\]
+\[900\pi\int xdx\]
+\[4500x^2\pi\]
+\[(4500(5)^2\pi)-(4500(1)^2\pi)\approx\boxed{339292 ft-lb}\]
 \item %Q14
 \begin{enumerate}[label=\alph*)]
 \item The graph is as follows:
@@ -316,7 +360,34 @@ Adding the two areas, our final area is \(1.75+1.25=\boxed{3 \text{ square units
 \end{enumerate}
 
 \item %Q15
+We need to find the time it takes for the motorcycle to reach 120m at its acceleration rate.
 
+We know that \(d=\frac{1}{2}at^2\). 
+Substituting in our values for distance and acceleration, we have 
+\[120=\frac{1}{2}\cdot2.6\cdot t^2\]
+\[t=\sqrt{\frac{240}{2.6}}\approx9.61\]
+
+Then multiplying this time by acceleration, we have a speed of \(9.61\cdot2.6=24.99m/s\).
+
+Then, the motorcycle decelerates at \(-1.5m/s^2\). 
+We can find the time it takes to reach its final speed of 12m/s by dividing the change in speed by the acceleration.
+
+Sidenote, I believe the question has a typo here - units for acceleration should be \(m/s^2\).
+
+\[\frac{24.99-12}{1.5}=8.67\]
+
+We can use an integral to find the displacement it takes to slow down from 24.99m/s to 12m/s. 
+This is represented by the function \(f(x)=-1.5x+24.99\).
+Our integral becomes 
+\[\int_0^{8.67}-1.5x+24.99dx\]
+
+Splitting into an indefinite integral
+\[\int-\frac{3x}{2}dx+\int24.99dx\]
+\[-\frac{3x^2}{4}+24.99x\]
+
+Substituting for our original value, we have \(-\frac{3\cdot(8.67)^2}{4}+24.99\cdot8.67\approx160.27\)
+
+Adding our two displacement values together, we have a total displacement of \(120m+160.27m=\boxed{280.27m}\)
 \item %Q16
 \begin{enumerate}[label=\alph*)]
 \item Let's define a function for the temperature of the bar.
