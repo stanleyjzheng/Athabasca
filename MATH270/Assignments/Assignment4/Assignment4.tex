@@ -1,0 +1,141 @@
+\documentclass[11pt, letterpaper, twoside]{article}
+\usepackage[letterpaper, portrait, left=1in, right=1in, top=1in, bottom=1in]{geometry}\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[explicit]{titlesec}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs, multirow} %for borders and merged ranges
+\usepackage{soul}% for underlines
+\usepackage[table]{xcolor} % for cell colors
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!} %Use \aug to make a equal column for an augmented matrix. Ie. 1 & 2 & 3 & 4 & \aug & x \\
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{60px}
+\hspace{0pt}
+\includegraphics[width=0.2\textwidth]{logo}\par\vspace{1cm}
+{\scshape\LARGE Athabasca University \par}
+\vspace{1cm}
+{\scshape\Large MATH 270\par}
+\vspace{1.5cm}
+{\huge\bfseries Assignment 4\par}
+\vspace{2cm}
+{\Large\itshape Stanley Zheng\par}
+\vfill
+{\large October 27, 2020\par}
+\vspace*{50px}
+\hspace{0pt}
+\pagebreak
+\end{titlepage}
+
+\begin{enumerate}
+\item 
+\begin{enumerate}[label=\alph*)]
+\item ‌‌\(\vec v + \vec w = (0+7, 1+4, -4+(-1), 1+(-2), 3) = (7, 5,-5,-1,5)\)
+\item \(3(2\vec u - \vec v)=3(2(1,2,-3,5,0)-(0,4,-1,1,2))\)
+\item \((3\vec u - \vec v)-(2\vec u + 4\vec w)\)
+\item \(\frac{1}{2}((7,1,-4,-2,3) -5(0,4,-1,1,2) +2(1,2,-3,5,0))+(1,2,-3,5,0)\)
+\end{enumerate}
+\item \begin{enumerate}[label=\alph*]
+\item
+\begin{enumerate}[label=\roman*)]
+\item The Euclidean distance can be found with the equation \(||u-v||=\sqrt{(u-v)\cdot(u-v)}\). 
+Substituting our vectors, we have \(u-v=(1,2,-3,0)-(5,1,2,-2)=(-4,1,-1,2)\). The Euclidean distance is 
+\[\sqrt{(-4,1,-1,2)(-4,1,-1,2)}=\sqrt{16+1-1+4}=\sqrt20\]
+
+To find the angle, we must find \(||u||\) and \(||v||\) by square rooting and squaring.
+\[||u|| = \sqrt{u^2} = \sqrt{1\cdot1+2\cdot2+(-3)\cdot(-3)+0\cdot0}=\sqrt{14}\]
+\[||v||=\sqrt{v^2}=\sqrt{5\cdot5+1\cdot1+2\cdot2+(-2)\cdot(-2)}=\sqrt{34}\]
+
+We know that \(\cos\theta=\frac{u\cdot v}{||u||\cdot||v||}.\)
+\[\frac{(1,2,-3,0)(5,1,2,-2)}{\sqrt{14}\cdot\sqrt{34}}=\frac{5+2-3+0}{\sqrt{476}}=\frac{1}{\sqrt{476}}=\frac{1}{2\sqrt{119}}\]
+
+Since \(\cos\theta>0\), we know that the angle between the vectors is acute.
+
+\item We can use the same methodology as above. 
+\[u-v=(0,1,1,1,2)-(2,1,0,-1,3)=(-2,0,1,2,-1)\]
+Our Euclidean distance is 
+\[\sqrt{(-2,0,1,2,-1)\cdot(-2,0,1,2,-1)}=\sqrt{(4+0+1+4+1)}=10\]
+
+We know that \(\cos\theta=\frac{u\cdot v}{||u||\cdot||v||}.\) Substituting in, we have 
+\begin{align*}
+\cos\theta&=\frac{(0,1,1,1,2)\cdot(2,1,0,-1,3)}{\sqrt{(0,1,1,1,2)\cdot(0,1,1,1,2)}\cdot\sqrt{(2,1,0,-1,3)\cdot(2,1,0,-1,3)}}\\
+&=\frac{0+1+0+-1+6}{\sqrt{0+1+1+1+4}+\sqrt{4+1+0+1+9}}\\
+&=\frac{6}{\sqrt{105}}
+\end{align*}
+
+Again, since \(\cos\theta>0\), the angle \(\theta\) is acute.
+\end{enumerate}
+\item \begin{enumerate}[label=\roman*)]
+\item We can find whether \(|u\cdot v|<||u||||v||\).
+\[||u||=\sqrt{4\cdot4+1\cdot1+1\cdot1}=\sqrt{18}\]
+\[||v||=\sqrt{1\cdot1+2\cdot2+3\cdot3}=\sqrt{14}\]
+\[u\cdot v=4\cdot1+1\cdot2+1\cdot3=9\]
+
+Then, \(|u\cdot v|=9<\sqrt{252}=||u||||v||\), so therefore, the Cauchy-Schwarz inequality holds.
+\item Again, we can calculate \(||u||, ||v||\), and \(|u\cdot v|\).
+\[||u||=\sqrt{1\cdot1+2\cdot2+1\cdot1+2\cdot2+3\cdot3}=\sqrt{19}\]
+\[||v||=\sqrt{0\cdot0+1\cdot1+1\cdot1+5\cdot5+(-2)\cdot(-2)}=\sqrt{31}\]
+\[u\cdot v=\sqrt{1\cdot0+2\cdot1+1\cdot1+2\cdot5+(-2)\cdot3}=\sqrt{7}\]
+
+Then, \(|u\cdot v| = 7<\sqrt{539}=||u||||v||\), so therefore, the Cauchy-Schwarz inequality holds.
+\end{enumerate}
+\end{enumerate}
+\item \begin{enumerate}[label=\alph*)]
+\item We can begin by finding a point on either plane. 
+For the plane \(2x-y+z=1\), we can let \(x, z=0\) so we find point \((0,-1,0)\).
+
+Next, we need to find the distance between this point and the second plane, \(2x-y+z=-1\).
+We can an equation to find the distance between this point and the plane.
+\[\frac{|(2\cdot0+(-1)\cdot(-1)+1\cdot0+1)}{\sqrt{2^2+(-1)^2+1^2}}=\boxed{\frac{2}{\sqrt{6}}}\]
+\item \begin{enumerate}[label=\roman*)]
+Two vectors are orthogonal if \(|a\cdot b|=0\).
+\[|a\cdot b|=-ab+ab=0\]
+Therefore, these two vectors are orthogonal.
+\item We can set the dot product of \(\vec v\) and a second vector, \(\vec{u}=(a,b)\) to 0.
+\[|(a,b)\cdot(2,-3)|=0\]
+\[2a-3b=0\]
+A few possible values include \((a,b)=(3,2)\) or \((a,b)=(6,4)\)
+\item We begin by finding orthogonal vectors to \((-3,4)\) like the previous question.
+\[-3a+4b=0\]
+One possible solution is \((a,b)=(4,3)\) or \((a,b)=(8,6)\).
+To find the unit vector, we multiply a vector by the reciprocal of its magnitude.
+\[\frac{1}{||(4,3)||}(4,3)=\frac{1}{\sqrt{4\cdot4+3\cdot3}}(4,3)=\frac{1}{5}(4,3)=\left(\frac{4}{5},\frac{3}{5}\right)\]
+Since the original vector, (-3, 4) is of dimension 2, we can make our unit vector negative and it will still be orthogonal. 
+As such, our two unit vectors are \(\boxed{\left(\frac{4}{5}, \frac{3}{5}\right), \left(-\frac{4}{5}, -\frac{3}{5}\right)}\)
+\end{enumerate}
+\end{enumerate} 
+\item 
+\begin{enumerate}[label=\alph*)]
+\item 
+We can begin by manipulating this system into an augmented matrix.
+\[\begin{bmatrix}
+1&3&-4&\aug&0\\
+1&2&3&\aug&0
+\end{bmatrix}\]
+\[\begin{bmatrix}
+1&3&-4&\aug&0\\
+0&1&-7&\aug&0
+\end{bmatrix}\]
+\[\begin{bmatrix}
+1&0&17&\aug&0\\
+0&1&-7&\aug&0
+\end{bmatrix}\]
+Therefore, our solutions are \(x_1=-17x_3\) and \(x_2=7x_3\). We can form a vector: \((x_1, x_2, x_3)=(-17x_3, 7x_3, a)\). 
+Finally, we can check whether this vector is orthogonal to the coefficient vectors. Note that \(a=x_3\)
+\[1(-17x_3)+3(7x_3)-4(a)=-17x_3-4a+21x_3=0\]
+\[1(-17x_3)+2(7x_3)+3(a)=-17x_3+14x_3+3a=0\]
+\item \begin{enumerate}[label=\roman*)]
+\item We can simply let the vectors be the coefficients for a homogenous system of linear equations.
+\[-3x_1+2x_2-1x_3=0\]
+\[-2x_2-2x_3=0\]
+\item Each equation is a plane, and the intersections of the equations are the solutions.
+We have 2 planes, so their intersection will always be a line.
+\item %DO NOT FORGET QUESTION 4bIII
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{document}

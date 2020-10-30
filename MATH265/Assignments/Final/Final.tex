@@ -1,0 +1,172 @@
+\documentclass[11pt, letterpaper, twoside]{article}
+\usepackage[letterpaper, portrait, left=1in, right=1in, top=1in, bottom=1in]{geometry}\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[explicit]{titlesec}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs, multirow} %for borders and merged ranges
+\usepackage{soul}% for underlines
+\usepackage[table]{xcolor} % for cell colors
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!} %Use \aug to make a equal column for an augmented matrix. Ie. 1 & 2 & 3 & 4 & \aug & x \\
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{60px}
+\hspace{0pt}
+\includegraphics[width=0.2\textwidth]{logo}\par\vspace{1cm}
+{\scshape\LARGE Athabasca University \par}
+\vspace{1cm}
+{\scshape\Large MATH 265\par}
+\vspace{1.5cm}
+{\huge\bfseries Final\par}
+\vspace{2cm}
+{\Large\itshape Stanley Zheng \par}
+\vfill
+{\large October 23, 2020\par}
+\vspace*{50px}
+\hspace{0pt}
+\pagebreak
+\end{titlepage}
+\begin{enumerate}
+\item %Q1
+First, we can differentiate with respect to \(x\) as per the fundamental theorem of Calculus.
+The fundamental theorem of Calculus states that if \(g(x)=\int_a^xf(t)dt\), then \(g^\prime(x)=f(x)\).
+
+We will use the property \(\int_a^bf(x)dx=F(b)-F(a)\).
+
+In this case, we have \(\frac{d}{dx}F(x)=\frac{d}{dx}\left(\int^x_af(t)dt\right)\). 
+We also know that \(F(x)-F(a)=\int_x^a\frac{f(t)}{t^2}dt\)
+
+\[\frac{d}{dx}(5+\int_a^x\frac{f(t)}{t^2})=12\frac{d}{dx}\sqrt{x}\]
+\[\frac{d}{dx}(F(x)-F(a))=\frac{6}{\sqrt{x}}\]
+
+Since \(F(x)\) is the antiderivative of \(f(x)\), we have \(\frac{d}{dx}F(x)=\frac{f(x)}{x^2}\).
+In addition, \(F(a)\) is 0 since the derivative of a constant is 0.
+
+\[\frac{f(x)}{x^2}=\frac{6}{\sqrt{x}}\]
+\[f(x)=6x^{\frac{3}{2}}\]
+
+Substituting back in, we have 
+\[5+\int_a^x\frac{6t^{\frac{3}{2}}}{t^2}dt=12\sqrt x\]
+
+If we let \(x=a\), the integral becomes 0.
+\[5=12\sqrt a\]
+\[\sqrt a=\frac{5}{12}\]
+\[a=\frac{25}{144}\]
+As such, our function is \(f(x)=6x^{\frac{3}{2}}\) and our value \(a\) is $\frac{25}{144}$.
+
+\item %Q2
+We can first represent the cost of each panel. 
+Since the box has a square base, both the top and bottom areas can be represented by \(x\), and the height can be represented by \(y\).
+
+The cost of the bottom panel can be represented by the surface area times the price per square foot, so the price is \(0.35x^2\).
+
+The top of the box is also square with edge length \(x\), so the price is \(0.15x^2\).
+
+The price for the sides of the box is \(0.20xy\), and since there are 4 side panels, we multiply by 4.
+
+The equation for our total cost is \(0.35x^2+0.15x^2+4(0.20xy)=1\).
+The equation for our volume is \(x^2y\), which we must maximize.
+
+Solving for \(y\) in our total cost, we have \(0.5x^2+0.8xy=1\), or \(y=\frac{-5x^2+10}{8x}\).
+Substituting into our volume equation, we get 
+\begin{align*}
+&x^2\left(\frac{5(-x^2+2)}{8x}\right)\\
+&=\frac{-5x^3+10x}{8}
+\end{align*}
+
+We can now maximize \(f(x)\), which represents the volume.
+\begin{align*}
+f^\prime(x)&=\frac{8(-15x^2+10)-0(-6x^3+10x)}{8^2}\\
+&=\frac{-15x^2+10}{8}
+\end{align*}
+Now letting \(f^\prime(x)=0\), we can solve find the critical points of \(f(x)\).
+\begin{align*}
+0&=\frac{-15x^2+10}{8}\\
+15x^2&=10\\
+x&=\pm \sqrt{\frac{2}{3}}
+\end{align*}
+We can discard the negative square root, since dimensions can only be positive. Then, we have \(x\approx0.82\).
+We can find the \(y\) value by substituting back into our cost equation 
+\[0.5(0.82)^2+0.8(0.82)y=1\]
+\[y\approx1.02\]
+Finally, we can find the volume
+\[0.82^2\cdot1.02\approx0.68\]
+
+Therefore, the width of the base and top is approximately $0.82 ft$, the height of the box is $1.02 ft$, and the volume is $0.68ft^3$.
+\item \begin{align*}
+\int \frac{x+2}{\sqrt[3]{x^2}}dx&=\int \left(\sqrt[3]{x}+\frac{2}{\sqrt[3]{x^2}}\right)dx\\
+&=\int \sqrt[3]{x}dx+2\int\frac{1}{\sqrt[3]{x^2}}dx\\
+&= \frac{3\sqrt[3]{x^4}}{4}+C+2\int\frac{1}{\sqrt[3]{x^2}}dx\\
+&= \frac{3\sqrt[3]{x^4}}{4}+2(3\sqrt[3]x)+C\\
+&= \boxed{\frac{3\sqrt[3]{x^4}}{4}+6\sqrt[3]x+C}
+\end{align*}
+
+\item %Q4
+First, we can rewrite this integral.
+\[\int x^2\sqrt{2-x}\]
+
+To solve this integral, we must use \(u\) substitution. 
+Let \(u=2-x\), so \(dx=-du\) and \(x^2=(2-u)^2\), then substitute in.
+\begin{align*}
+-\int(u-2)^2\sqrt u du &= -\int u^{\frac{5}{2}}-4u^{\frac{3}{2}}+4u^{\frac{1}{2}}du\\
+&=-\frac{2u^{\frac{7}{2}}}{7}+4\int u^{\frac{3}{2}}du-4\int u^{\frac{1}{2}}du \\
+&=-\frac{2u^{\frac{7}{2}}}{7}+4\left(\frac{2u^{\frac{5}{2}}}{5}\right)-4\int u^{\frac{1}{2}}du\\
+&=-\frac{2u^{\frac{7}{2}}}{7}+4\left(\frac{2u^{\frac{5}{2}}}{5}\right)-4\left(\frac{2u^{\frac{3}{2}}}{3}\right)\\
+&=-\frac{2u^{\frac{7}{2}}}{7}+\frac{8u^{\frac{5}{2}}}{5}-\frac{8u^{\frac{3}{2}}}{3}
+\end{align*}
+Finally, we substitute \(2-x=u\).
+\[\boxed{-\frac{2(2-x)^{\frac{7}{2}}}{7}+\frac{8(2-x)^{\frac{5}{2}}}{5}-\frac{8(2-x)^{\frac{3}{2}}}{3}+C}\]
+
+\item %Q5
+First, we can find any vertical asymptotes by letting the denominator equal zero and solving.
+However, we can see that \(\sqrt{16x^6+1}=0\) has no real solutions since \(16x^6\) cannot be negative.
+
+As a result, we know that there are no vertical asymptotes. 
+To find horizontal asymptotes, we can simply evaluate the limit \(f(x)\) as it approaches infinity and negative infinity.
+\[\lim_{x\to\infty}\frac{7x^3}{\sqrt{16x^6+1}}\]
+Then, divide the numerator and denominator by \(|x^3|\)
+\begin{align*}
+\lim_{x\to\infty}\frac{7x^3}{\sqrt{16x^6+1}}&=\lim_{x\to\infty}\frac{\frac{7x^3}{|x^3|}}{\frac{\sqrt{16x^6+1}}{|x^3|}}\\
+&=\lim_{x\to\infty}\frac{7}{\sqrt{\frac{16x^6}{x^6}+\frac{1}{x^6}}}\\
+&=\frac{7}{4}
+\end{align*}
+Similarly, we can find the limit of \(f(x)\) as \(x\) approaches negative infinity.
+However, since we are considering only negative values of \(x\), then \(\sqrt{x^2}=|x|=-x\) for \(x<0\).
+Using this, we have 
+\begin{align*}
+\lim_{x\to-\infty}\frac{7x^3}{\sqrt{16x^6+1}}&=\lim_{x\to\infty}\frac{\frac{7x^3}{|x^3|}}{\frac{\sqrt{16x^6+1}}{|x^3|}}\\
+&=\lim_{x\to-\infty}\frac{\frac{7x^3}{-x^3}}{\frac{\sqrt{16x^6+1}}{\sqrt{x^6}}}\\
+&=\lim_{x\to-\infty}\frac{-7}{\sqrt{16+\frac{1}{x^6}}}\\
+&=-\frac{7}{4}
+\end{align*}
+As such, \(f(x)\) has no vertical asymptotes, but two horizontal asymptotes at \(\boxed{\pm\frac{7}{4}}\)
+
+\item %Q6
+We can represent the displacement of the particle with a definite integral.
+\[\int_0^58t-8\]
+To solve this, we can first solve the indefinite integral.
+\[8\int tdt-8\int1dt\]
+\[=4t^2-8t+C\]
+However, we cannot simply substitute in \(t=5\) and subtract from \(t=0\). 
+As the question specifies distance, we cannot use the absolute value definite integral, as this is displacement.
+
+We need to find the point \(z\) where the line crosses the \(t\) axis, then calculate \(-\int_0^zv(t)+\int_z^5v(t)\)
+To do this, we set \(v(t)=0\).
+\[8t-8=0\]
+\[t=1\]
+
+We can then find \(\int_0^1v(t)\) by substituting \(x=1\) into our indefinite integral and subtracting from \(x=0.\)
+\[\int_0^1v(t)=(4(1^2)-8(1)+C)-(4(0^2)-8(0)+C)=-4\]
+Then, find \(\int_1^5v(t)\) in the same manner.
+\[\int_1^5v(t)=(4(5^2)-8(5)+C)-(4(1^2)-8(1)+C)=64\]
+
+Finally, we can substitute our integrals into \(-\int_0^zv(t)+\int_z^5v(t)\).
+\[\int_0^zv(t)-\int_z^5v(t)=-(-4)+64=68\]
+
+As a result, the total distance travelled of the particle is \(\boxed{68m}\)
+\end{enumerate}
+\end{document}
