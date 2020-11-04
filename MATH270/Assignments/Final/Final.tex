@@ -1,0 +1,181 @@
+\documentclass[11pt, letterpaper, twoside]{article}
+\usepackage[letterpaper, portrait, left=1in, right=1in, top=1in, bottom=1in]{geometry}\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[explicit]{titlesec}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs, multirow} %for borders and merged ranges
+\usepackage{soul}% for underlines
+\usepackage[table]{xcolor} % for cell colors
+\usepackage{esvect}% for long vectors (\vv)
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!} %Use \aug to make a equal column for an augmented matrix. Ie. 1 & 2 & 3 & 4 & \aug & x \\
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{60px}
+\hspace{0pt}
+\includegraphics[width=0.2\textwidth]{logo}\par\vspace{1cm}
+{\scshape\LARGE Athabasca University \par}
+\vspace{1cm}
+{\scshape\Large MATH 270\par}
+\vspace{1.5cm}
+{\huge\bfseries Final\par}
+\vspace{2cm}
+{\Large\itshape Stanley Zheng\par}
+\vfill
+{\large November 3, 2020\par}
+\vspace*{50px}
+\hspace{0pt}
+\pagebreak
+\end{titlepage}
+
+\begin{enumerate}
+\item Let \(A=(a, b, c), B=(d, e, f), C=(g, h, i)\).
+We can now find the individual magnitudes \(\vv{A\cdot B}, \vv {B\cdot C}, \vv {A\cdot C}\)
+\[\vv{AB}=A-B=(a,b,c)-(d,e,f)=(a-d, b-e, c-f)\]
+\[\vv{BC}=B-C=(d,e,f)-(g,h,i)=(d-g,e-h,f-i)\]
+\[\vv{AC}=A-C=(a,b,c)-(g,h,i)=(a-g,b-h,c-i)\]
+
+Then, we can find the magnitude 
+\[||\vv{AB}|| = \sqrt{(a-d)^2+(b-e)^2+(c-f)^2}\]
+\[||\vv{BC}|| = \sqrt{(d-g)^2+(e-h)^2+(f-i)^2}\]
+\[||\vv{AC}|| = \sqrt{(a-g)^2+(b-h)^2+(c-i)^2}\]
+
+Our inequality is \(||\vv{AC}||^2\leq ||\vv{AB}||^2+||\vv{BC}||^2\). Substituting in, we have 
+\[(a-d)^2+(b-e)^2+(c-f)^2\leq(d-g)^2+(e-h)^2+(f-i)^2+(a-g)^2+(b-h)^2+(c-i)^2\]
+
+This vector is similar to the pythagorean theorem/inequality
+\item 
+\[\begin{bmatrix}
+    1&2&3\\
+    4&5&6\\
+    7&8&9
+\end{bmatrix}\]
+
+We can find the eigenvectors and eigenvalues of the matrix.
+
+We know that for matrix \(A\), there is a \(\lambda\) for which \(\det (A-\lambda I)=0\).
+We can find the determinant with cofactor expansion and solve for \(\lambda\)
+\begin{align*}
+0&=\det \begin{bmatrix}
+    1-\lambda&2&3\\
+    4&5-\lambda&6\\
+    7&8&9-\lambda
+\end{bmatrix}\\
+=(1-\lambda)((5-\lambda)(9-\lambda)-&(8\cdot 6))-2(4(9-\lambda)-7\cdot6)+3(4\cdot8-7(5-\lambda))\\
+&=-\lambda^3+15\lambda^2-11\lambda-3-8\lambda-12+21\lambda-9\\
+&=-\lambda^3+15\lambda^2+18\lambda
+&=-\lambda(\lambda^2-15\lambda-18)
+\end{align*}
+We have one root, \(\lambda=0\). 
+From here, we can use the quadratic formula to find the other roots.
+\[\lambda=\frac{15\pm\sqrt{(-15)^2-4(1)(-18)}}{2}=\frac{15\pm3\sqrt{33}}{2}\]
+
+Therefore, our eigenvalues are \(\lambda=0, \frac{15\pm3\sqrt{33}}{2}\)
+
+Next, to find our eigenvectors, we can use Gaussian Elimination. 
+For each eigenvalue \(\lambda\), we have \((A-\lambda I)\vv{x}=\vv{0}\).
+To find \(\vec x\), we can create an augmented matrix consisting of \(A-\lambda I | 0\).
+
+First, we let \(\lambda=0\).
+\[
+\begin{bmatrix}
+    1-0&2&3&\aug&0\\
+    4&5-0&6&\aug&0\\
+    7&8&9-0&\aug&0
+\end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+    1&2&3&\aug&0\\
+    0&-3&-6&\aug&0\\
+    0&-6&-12&\aug&0
+\end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+1&0&-1&0\\
+0&1&2&0\\
+0&0&0&0
+\end{bmatrix}
+\]
+This gives us the following linear system.
+\[x_1-x_3=0\]
+\[x_1+2x_2=0\]
+Then, our eigenvector \(\vec x\) is given by 
+\[\vv x=\begin{bmatrix}
+    x_3\\
+    -2x_3\\
+    x_3\\
+\end{bmatrix}=x_3\begin{bmatrix}
+    1\\
+    -2\\
+    1
+\end{bmatrix}\]
+
+Next, we can let \(\lambda=\frac{15+3\sqrt{33}}{2}\)
+\[
+\begin{bmatrix}
+    1-\frac{15+3\sqrt{33}}{2}&2&3&\aug&0\\
+    4&5-\frac{15+3\sqrt{33}}{2}&6&\aug&0\\
+    7&8&9-\frac{15+3\sqrt{33}}{2}&\aug&0
+\end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+    1&-\frac{4}{13+3\sqrt{33}}&-\frac{6}{13+3\sqrt{33}}&\aug&0\\
+    4&5-\frac{15+3\sqrt{33}}{2}&6&\aug&0\\
+    7&8&9-\frac{15+3\sqrt{33}}{2}&\aug&0
+\end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+    1&-\frac{4}{13+3\sqrt{33}}&-\frac{6}{13+3\sqrt{33}}&\aug&0\\
+    0&\frac{-9\sqrt{33}-33}{8}&\frac{9\sqrt{33}+57}{16}&\aug&0\\
+    0&\frac{21\sqrt{33}+165}{32}&-\frac{-33\sqrt{33}-177}{64}&\aug&0
+\end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+    1&-\frac{4}{13+3\sqrt{33}}&-\frac{6}{13+3\sqrt{33}}&\aug&0\\
+    0&1&\frac{-3\sqrt{33}-11}{44}&\aug&0\\
+    0&0&0&\aug&0
+\end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+    1&0&\frac{11-3\sqrt{33}}{22}&\aug&0\\
+    0&1&\frac{-3\sqrt{33}-11}{44}&\aug&0\\
+    0&0&0&\aug&0
+\end{bmatrix}
+\]
+This gives us the following systems of equations.
+\[x_1+\frac{11-3\sqrt{33}}{22}x_3=0\]
+\[x_2+\frac{-3\sqrt{33}-11}{44}x_3=0\]
+Thus, 
+\[\vec{x}=x_3\begin{bmatrix}
+    -\frac{11-3\sqrt{33}}{22}\\
+    -\frac{-3\sqrt{33}-11}{44}\\
+    1
+\end{bmatrix}\]
+
+Finally, we can let \(\lambda=\frac{15-3\sqrt{33}}{2}\)
+\[
+\begin{bmatrix}
+    1-\frac{15-3\sqrt{33}}{2}&2&3&\aug&0\\
+    4&5-\frac{15-3\sqrt{33}}{2}&6&\aug&0\\
+    7&8&9-\frac{15-3\sqrt{33}}{2}&\aug&0
+\end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+    1&\frac{3\sqrt{33}+13}{32}&\frac{9\sqrt{33}+39}{64}&\aug&0\\
+    4&5-\frac{15-3\sqrt{33}}{2}&6&\aug&0\\
+    7&8&9-\frac{15-3\sqrt{33}}{2}&\aug&0
+\end{bmatrix}
+\]
+\end{enumerate}
+\end{document}

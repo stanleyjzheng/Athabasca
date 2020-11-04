@@ -1,0 +1,140 @@
+\documentclass[a4paper]{article} 
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\tcbuselibrary{skins}
+
+\title{
+\vspace{-3em}
+\begin{tcolorbox}[colframe=white,opacityback=0]
+\begin{tcolorbox}
+Cornell Notes in \LaTeX\hspace{0cm} with examples \hfill \small Stanley Zheng - \today{}
+\end{tcolorbox}
+\end{tcolorbox}
+\vspace{-3em}
+}
+% \topic{Here is a topic - it is on the left side.}
+% {Topics are meant to be subjects, concepts, or questions relating to notes.}
+% {The first piece of evidence is mandatory}
+% {Now add up to five\ldots}
+% {\ldots additional pieces of evidence.}
+% \topic{Here's another topic.}
+% {We put main notes in a second pair of brackets}
+% {If we want multiple points, we can simply add it to the bottom}
+% \summary{Now we can add a summary at the bottom. 
+% Cornell notes in \LaTeX \hspace{0cm} are super usable! 
+% We can make some real notes in the next page.}
+
+% \newpage 
+% \topic{Integrals are the antiderivative (constant exception)}
+% {Integrals find the area under a curve given a lower and upper \(x\) bound.
+% They can be calculated as the opposite of a derivative. 
+% For example, we know that \(\frac{d}{dx}x^3=3x^2\).
+% As such, the anti-derivative of \(3x^2\) is \(x^3\).}
+% {We know that \(\frac{d}{dx}c\)=0. 
+% The derivative of any constant is 0, and since the integral is the antiderivative, we do not know if there is a constant.
+% As a result, every integral must be followed by \(+C\).}
+    
+% \topic{There are two types of integrals}
+% {The two types are definite integrals, and indefinite integrals.}
+% {Indefinite integrals find the area under a curve from an arbitrary range - for example, in this integral, we find the area of \(f(x)\): 
+% \[\int f(x)dx\]
+% In order to find the area under a range, we can subtract the integral of our lower bound from the integral of our upper bound}
+% {Definite integrals find the area under a curve from a defined two points. For example, the following integral is of \(f(x)\) from \(a\) to \(x.\)
+% \[\int_a^x f(x)dx\]}
+
+% \topic{Solve \(\int\frac{3x-9}{\sqrt{x^2-6x+1}}dx\)}
+% {We can use \(u\) substitution.}
+% {First, we substitute \(u=x^2-6x+1\), the polynomial under the square root.
+% \[u^\prime=2x-6 dx\]
+% \[\frac{u^\prime}{2}=x-3dx\]
+% Conveniently, we see that the numerator has a factor of this.
+% \begin{align*}
+% \int\frac{3x-9}{\sqrt{x^2-6x+1}}&=3\int \frac{\frac{u^\prime}{2}}{\sqrt{u}}\\
+% &= 3u^{0.5}+C\\
+% &= \boxed{3\sqrt{x^2-6x+1}+C}
+% \end{align*}
+% }
+% \vspace{0.93cm}
+% \summary{Integrals are the antiderivative (area under curve) and can be definite or indefinite}
+
+\date{}
+
+\usepackage{background}
+\SetBgScale{1}
+\SetBgAngle{0}
+\SetBgColor{gray}
+\SetBgContents{\rule[0em]{4pt}{\textheight}}
+\SetBgHshift{-2.3cm}
+\SetBgVshift{0cm}
+
+\usepackage{lipsum}% just to generate filler text for the example
+\usepackage[margin=2cm]{geometry}
+
+\usepackage{tikz}
+\usepackage{tikzpagenodes}
+
+\parindent=0pt
+
+\usepackage{xparse}
+\DeclareDocumentCommand\topic{ m m g g g g g}
+{
+\begin{tcolorbox}[sidebyside,sidebyside align=top,opacityframe=0,opacityback=0,opacitybacktitle=0, opacitytext=1,lefthand width=.3\textwidth]
+\begin{tcolorbox}[colback=black!05,colframe=black!25,sidebyside align=center,width=\textwidth,before skip=0pt]
+#1.\end{tcolorbox}%
+\tcblower
+\begin{tcolorbox}[colback=blue!5,colframe=blue!15,width=\textwidth,before skip=0pt]
+#2
+\end{tcolorbox}
+\IfNoValueF {#3}{
+\begin{tcolorbox}[colback=blue!05,colframe=blue!15,width=\textwidth]
+#3
+\end{tcolorbox}
+}
+\IfNoValueF {#4}{
+\begin{tcolorbox}[colback=blue!05,colframe=blue!15,width=\textwidth]
+#4
+\end{tcolorbox}
+}
+\IfNoValueF {#5}{
+\begin{tcolorbox}[colback=blue!05,colframe=blue!15,width=\textwidth]
+#5
+\end{tcolorbox}
+}
+\IfNoValueF {#6}{
+\begin{tcolorbox}[colback=blue!05,colframe=blue!15,width=\textwidth]
+#6
+\end{tcolorbox}
+}
+\IfNoValueF {#7}{
+\begin{tcolorbox}[colback=blue!05,colframe=blue!15,width=\textwidth]
+#7
+\end{tcolorbox}
+}
+\end{tcolorbox}
+}
+
+\def\summary#1{
+\begin{tikzpicture}[overlay,remember picture,inner sep=0pt, outer sep=0pt]
+\node[anchor=south,yshift=-1ex] at (current page text area.south) {% 
+\begin{minipage}{\textwidth}%%%%
+\begin{tcolorbox}[colframe=white,opacityback=0]
+\begin{tcolorbox}[enhanced,colframe=black,fonttitle=\large\bfseries\sffamily,sidebyside=true, nobeforeafter,before=\vfil,after=\vfil,colupper=black,sidebyside align=top, lefthand width=.95\textwidth,opacitybacktitle=1, opacitytext=1,
+segmentation style={black!55,solid,opacity=0,line width=3pt},
+title=Summary
+]
+#1
+\end{tcolorbox}
+\end{tcolorbox}
+\end{minipage}
+};
+\end{tikzpicture}
+}
+
+\begin{document} 
+\maketitle
+
+\topic{Let's show off this template}
+{Type in something on the right}
+
+\summary{Here is a summary}
+\end{document}
