@@ -1,4 +1,4 @@
-\documentclass[11pt, letterpaper, twoside]{article}
+\documentclass[12pt, letterpaper, twoside]{article}
 \usepackage[letterpaper, portrait, left=1in, right=1in, top=1in, bottom=1in]{geometry}\usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -22,9 +22,9 @@
 \vspace{1cm}
 {\scshape\Large MATH 270\par}
 \vspace{1.5cm}
-{\huge\bfseries Final\par}
+{\huge\bfseries Final Evaluation Report\par}
 \vspace{2cm}
-{\Large\itshape Stanley Zheng\par}
+{\Large\itshape Stanley Zheng \normalfont{(3486740)} \par}
 \vfill
 {\large November 3, 2020\par}
 \vspace*{50px}
@@ -33,21 +33,23 @@
 \end{titlepage}
 
 \begin{enumerate}
-\item Let \(A=(a, b, c), B=(d, e, f), C=(g, h, i)\).
-We can now find the individual magnitudes \(\vv{A\cdot B}, \vv {B\cdot C}, \vv {A\cdot C}\)
-\[\vv{AB}=A-B=(a,b,c)-(d,e,f)=(a-d, b-e, c-f)\]
-\[\vv{BC}=B-C=(d,e,f)-(g,h,i)=(d-g,e-h,f-i)\]
-\[\vv{AC}=A-C=(a,b,c)-(g,h,i)=(a-g,b-h,c-i)\]
+\item 
 
-Then, we can find the magnitude 
-\[||\vv{AB}|| = \sqrt{(a-d)^2+(b-e)^2+(c-f)^2}\]
-\[||\vv{BC}|| = \sqrt{(d-g)^2+(e-h)^2+(f-i)^2}\]
-\[||\vv{AC}|| = \sqrt{(a-g)^2+(b-h)^2+(c-i)^2}\]
+We can let \(A=(9,7,5), B=(3,1,2), C=(4,6,8)\).
+We can then find the individual vectors \(\vv{AB}, \vv{BC}, \vv{AC}\) from these points.
+\[\vv{AB}=A-B=(9,7,5)-(3,1,2)=(6,6,3)\]
+\[\vv{BC}=B-C=(3,1,2)-(4,6,8)=(-1, -5, -6)\]
+\[\vv{AC}=A-C=(9,7,5)-(4,6,8)=(5,1,-3)\]
 
-Our inequality is \(||\vv{AC}||^2\leq ||\vv{AB}||^2+||\vv{BC}||^2\). Substituting in, we have 
-\[(a-d)^2+(b-e)^2+(c-f)^2\leq(d-g)^2+(e-h)^2+(f-i)^2+(a-g)^2+(b-h)^2+(c-i)^2\]
+Then, we can find each vector's magnitude 
+\[||\vv{AB}|| = \sqrt{6^2+6^2+3^2}=9\]
+\[||\vv{BC}|| = \sqrt{(-1)^2+(-5)^2+(-6)^2}=\sqrt{62}\]
+\[||\vv{AC}|| = \sqrt{5^2+1^2+(-3)^2}=\sqrt{35}\]
 
-This vector is similar to the pythagorean theorem/inequality
+Then, substituting in our vectors and simplifying, our inequality becomes 
+\[(\sqrt{35})^2\leq 9^2+(\sqrt{62})^2\]
+\[35\leq143\]
+
 \item 
 \[\begin{bmatrix}
     1&2&3\\
@@ -67,7 +69,7 @@ We can find the determinant with cofactor expansion and solve for \(\lambda\)
 \end{bmatrix}\\
 =(1-\lambda)((5-\lambda)(9-\lambda)-&(8\cdot 6))-2(4(9-\lambda)-7\cdot6)+3(4\cdot8-7(5-\lambda))\\
 &=-\lambda^3+15\lambda^2-11\lambda-3-8\lambda-12+21\lambda-9\\
-&=-\lambda^3+15\lambda^2+18\lambda
+&=-\lambda^3+15\lambda^2+18\lambda\\
 &=-\lambda(\lambda^2-15\lambda-18)
 \end{align*}
 We have one root, \(\lambda=0\). 
@@ -114,7 +116,7 @@ Then, our eigenvector \(\vec x\) is given by
     1\\
     -2\\
     1
-\end{bmatrix}\]
+\end{bmatrix}\] 
 
 Next, we can let \(\lambda=\frac{15+3\sqrt{33}}{2}\)
 \[
@@ -157,8 +159,8 @@ This gives us the following systems of equations.
 \[x_2+\frac{-3\sqrt{33}-11}{44}x_3=0\]
 Thus, 
 \[\vec{x}=x_3\begin{bmatrix}
-    -\frac{11-3\sqrt{33}}{22}\\
-    -\frac{-3\sqrt{33}-11}{44}\\
+    \frac{-11+3\sqrt{33}}{22}\\
+    \frac{3\sqrt{33}+11}{44}\\
     1
 \end{bmatrix}\]
 
@@ -177,5 +179,81 @@ Finally, we can let \(\lambda=\frac{15-3\sqrt{33}}{2}\)
     7&8&9-\frac{15-3\sqrt{33}}{2}&\aug&0
 \end{bmatrix}
 \]
+\[
+\begin{bmatrix}
+    1&-\frac{4}{13-3\sqrt{33}}&-\frac{6}{13-3\sqrt{33}}&\aug&0\\
+    0&1&\frac{3\sqrt{33}-11}{44}&\aug&0\\
+    0&0&0&\aug&0
+\end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+    1&0&\frac{11+3\sqrt{33}}{22}&\aug&0\\
+    0&1&\frac{3\sqrt{33}-11}{44}&\aug&0\\
+    0&0&0&\aug&0
+\end{bmatrix}
+\]
+This gives us the following systems of equations.
+\[x_1+\frac{11+3\sqrt{33}}{22}x_3=0\]
+\[x_2+\frac{3\sqrt{33}-11}{44}x_3=0\]
+Thus, 
+\[\vec{x}=x_3\begin{bmatrix}
+    -\frac{11+3\sqrt{33}}{22}\\
+    -\frac{-3\sqrt{33}-11}{44}\\
+    1
+\end{bmatrix}\]
+
+Therefore, our eigenvalues are \(\lambda=0, \frac{15\pm3\sqrt{33}}{2}\), 
+
+and our eigenvectors are 
+\(\begin{bmatrix}
+1\\
+-2\\
+1\\
+\end{bmatrix}, 
+\begin{bmatrix}
+\frac{-11+3\sqrt{33}}{22}\\
+\frac{3\sqrt{33}+11}{44}\\
+1
+\end{bmatrix},
+\begin{bmatrix}
+-\frac{11+3\sqrt{33}}{22}\\
+-\frac{-3\sqrt{33}-11}{44}\\
+1
+\end{bmatrix}\)
 \end{enumerate}
+\newpage 
+
+\noindent Reflection
+
+\vspace{0.3cm}
+\noindent As a High School student and aspiring Data Scientist, MATH270 is opening my eyes to the rigors of postsecondary education.
+In previous mathematics courses, it is a long journey of learning before being able to apply concepts to real-world concepts. 
+However, I have been able to apply linear algebra in my everyday programming.
+
+\vspace{0.3cm}
+\noindent Linear Algebra in particular is used widely in machine learning, where efficient matrix operations are used to backpropogate, or make machines "learn".
+Knowing matrix operations, especially the difference between dot product and cross product, has allowed me to be more efficient in programming and debugging.
+Other concepts are also widely used, such as rank, the number of linearly independent rows/columns of a matrix, which is used for Principal Component Analysis (PCA).
+PCA is a tool that is used in machine learning to reduce data dimensionality.
+For example, the rank of the observation matrix can tell you if it is possible to find a unique solution for your model. 
+If that were the case and you had a full-rank matrix you could just invert the matrix (for linear problems, and assuming it is square) and use that as you model.
+While this almost never happens, PCA can often filter which data points are most useful, and reduce noise. 
+PCA can also use eigendecomposition, where matrices are broken down into eigenvalues and eigenvectors to simplify other operations, such as powers, without using as many computer resources.
+
+\vspace{0.3cm}
+\noindent Euclidean distance is used in machine learning regularization. 
+L2 regression, or Ridge regression, is a technique used to regularize neural network to keep the coefficients of the model small and, in turn, the model less complex.
+This way, less computing power is needed as smaller numbers are multiplied together.
+L2 regularization also normalizes data, allowing neural networks to generalize better on data they have never encountered before.
+
+\vspace{0.3cm}
+\noindent Another topic I found interesting is the determinant - the fact that there is a scalar representation of a matrix, or more specifically, the product of all eigenvalues of a matrix. 
+The determinant represents the multiplicative change when transforming the space using a matrix.
+However, linear algebra's uses extend far beyond machine learning.
+Topics such as traffic flow, Leonteif economic models, and cryptography all use linear algebra.
+There are also many topics I would like to explore in the future - Markov chains and graph theory.
+Overall, I have really enjoyed MATH270 - especially its applicability to my career of interest.
+Linear algebra has expanded my intuition for the building blocks of machine learning and AI.
+
 \end{document}
