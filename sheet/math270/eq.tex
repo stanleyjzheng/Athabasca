@@ -84,7 +84,7 @@ A system is \textbf{consistent} when it has at least one solution. If the system
 A \textbf{consistent} system will have a \textbf{unique} solution if and only if the columns of the coefficient matrix are linearly independent vectors (if the homogenous linear equation has non-trivial solutions)
 
 \vspace{2mm}
-The \textbf{span} of a system is the sum of the linear combination of each of the column vectors.
+The \textbf{span} of a system is the sum of the linear combination of each of the column vectors (dimensions)
 
 \vspace{2mm}
 A matrix is \textbf{orthogonal} if \(u\cdot v=0\).
@@ -108,6 +108,45 @@ The \textbf{adjoint method} is finding the inverse of a matrix by multiplying by
 \textbf{Cauchy Schwarz} inequality states \(|x\cdot y|\leq ||x||\cdot||y||\) (the dot product is less than the norm) or \(||x||||y||\cos\theta\leq||x||||y||\)
 
 \vspace{2mm}
+\textbf{Dot product} is the projection of one matrix multiplied by the length of the other matrix - order does not matter. Sum of element wise multiplication.
+
+\vspace{2mm}
+\textbf{Cross product} is the vector that makes the determinant zero, or \(A\times B= ||A||||B||\sin\theta\). 
+The length of the resultant vector is the parallelogram's area, and is perpendicular to the other vectors.
+\[\begin{bmatrix}
+    v_1\\
+    v_2\\
+    v_3
+\end{bmatrix}\times\begin{bmatrix}
+    w_1\\
+    w_2\\
+    w_3
+\end{bmatrix}=\det \begin{bmatrix}
+    \hat{i}&v_1&w_1\\
+    \hat{j}&v_2&w_2\\
+    \hat{k}&v_3&w_3
+\end{bmatrix}=0\]
+
+\vspace{2mm}
+Standard matrix for \textbf{shear} is \(\begin{bmatrix}
+    1&k\\
+    0&1
+\end{bmatrix}\begin{bmatrix}
+    x\\
+    y\\
+\end{bmatrix}\)
+
+\vspace{2mm}
+Standard matrix for \textbf{rotation} is \(\begin{bmatrix}
+    \cos\theta&-\sin\theta\\
+    \sin\theta&\cos\theta
+\end{bmatrix}\)
+
+\vspace{2mm}
+Standard matrix for \textbf{contraction} is \(k\) times the identity matrix.
+
+\vspace{2mm}
+
 \textbf{Vector axioms}
 \begin{enumerate}[label=-]
 \item Additive: \(x+y=y+x\), \((x+y)+x=x+(y+x)\), \(0+x=x+0=x\), \((-x)+x=x+(-x)=0\)
@@ -116,17 +155,28 @@ The \textbf{adjoint method} is finding the inverse of a matrix by multiplying by
 \end{enumerate}
 \vspace{2mm}
 Extras:
+\[\begin{bmatrix}
+a&b\\
+c&d
+\end{bmatrix}\begin{bmatrix}
+e&f\\
+g&h
+\end{bmatrix}=\begin{bmatrix}
+ae+bg&af+bh\\
+ce+dg&cf+dh
+\end{bmatrix}\]
 
-\vspace{2mm}
 A system of linear equations with coefficient matrix \(A\) will be inconsistent for certain values on the right hand side if the row echelon form of \(A\) contains a row of zeros. If the row echelon form of the coefficient matrix \(A\) does not contain a row of zeros, then the system is always consistent, regardless of what the right hand side is.
-
-Vector operations (what does dot/cross product represent and how to find)
-
-Contraction and dilation of matrices
 
 Standard matrix for shear, reflection of certain dimensions
 
 Eigenvectors/eigenvalues:
 https://www.scss.tcd.ie/Rozenn.Dahyot/CS1BA1/SolutionEigen.pdf
+
+Eigenbasis makes powers much easier since it is a diagonal matrix. 
+You can find eigenbasis by multiplying by the tranformation on the right, and the 
+inverse of the transformation on the left. 
+Then, you compute the power, and convert back.
+This is called "change of basis"
 
 \end{document}
